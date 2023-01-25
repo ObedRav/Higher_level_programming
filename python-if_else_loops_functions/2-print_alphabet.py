@@ -1,6 +1,3 @@
 #!/usr/bin/python3
-import string as str
-
-
-for letter in str.ascii_lowercase:
-    print("{}".format(letter), end="")
+for i in range(97, 123):
+    print("{}".format(chr(i)), end="")
