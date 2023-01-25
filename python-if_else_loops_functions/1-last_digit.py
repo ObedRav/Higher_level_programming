@@ -2,8 +2,16 @@
 import random
 
 
+def is_negative(number):
+    return number < 0
+
+
 def last_digit(number):
-    last_digit = int(repr(number)[-1])
+    last_digit = repr(number)[-1]
+    if (is_negative(number)):
+        last_digit = int(f"-{last_digit}")
+    else:
+        last_digit = int(last_digit)
     return last_digit
 
 
