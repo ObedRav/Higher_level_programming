@@ -3,4 +3,4 @@ import string as str
 
 
 for letter in str.ascii_lowercase:
-    print(f"{letter}", end="")
+    print("{}".format(letter), end="")
