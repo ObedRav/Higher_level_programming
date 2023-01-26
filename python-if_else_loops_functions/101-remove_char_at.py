@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def is_negative(number):
     return number < 0
 
