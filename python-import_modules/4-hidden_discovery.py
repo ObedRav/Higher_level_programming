@@ -4,14 +4,8 @@ import hidden_4
 
 __name__ = "__main__"
 
-# Get the bytecode for the module
-bytecode = hidden_4.__code__.co_code
-
-# Disassemble the bytecode
-dis.dis(bytecode)
-
 # Extract the names of the defined variables
-names = [name for name in dis.get_names(bytecode) if not name.startswith("__")]
+names = [name for name in dir(hidden_4) if not name.startswith("__")]
 
 # Sort the names in alphabetical order
 names.sort()
