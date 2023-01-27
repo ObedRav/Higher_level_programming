@@ -9,4 +9,4 @@ if not pyfile:
     exit(1)
 
 py_compile.compile(pyfile, cfile=pyfile + "c")
-print("Compiling main.py ...")
+print("Successfully compiled " + pyfile + " to " + pyfile + "c.")
