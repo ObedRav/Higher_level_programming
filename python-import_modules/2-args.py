@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import sys
 
+__name__ = "__main__"
+
 argv = sys.argv
 
 if (len(argv) == 1):
