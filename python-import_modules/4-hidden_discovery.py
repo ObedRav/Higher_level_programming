@@ -2,6 +2,8 @@
 import dis
 import hidden_4
 
+__name__ = "__main__"
+
 # Get the bytecode for the module
 bytecode = hidden_4.__code__.co_code
 
