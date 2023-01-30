@@ -1,4 +1,9 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    new_string = my_string.strip('cC')
+    new_string = ""
+    for letters in my_string:
+        if (letters == "c" or letters == "C"):
+            letters = ""
+        new_string += letters
+
     return new_string
