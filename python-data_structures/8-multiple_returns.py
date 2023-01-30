@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    if (not sentence):
-        return None
     length = len(sentence)
-    last_digit = (sentence[0])
-    return length, last_digit
+    first_digit = sentence[0] if sentence else None
+    return length, first_digit
