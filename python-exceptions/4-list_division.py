@@ -1,15 +1,10 @@
 #!/usr/bin/python3
-from itertools import zip_longest as zl
-
-
 def list_division(my_list_1, my_list_2, list_length):
     div = []
-    for list_1, list_2 in zl(my_list_1, my_list_2, fillvalue=None):
+    for i in range(list_length):
         try:
-            if (list_1 is None or list_2 is None):
-                raise ValueError
-            if isinstance(list_1 / list_2, float):
-                div.append(list_1 / list_2)
+            if isinstance(my_list_1[i] / my_list_2[i], float):
+                div.append(my_list_1[i] / my_list_2[i])
         except ZeroDivisionError:
             print("division by 0")
             div.append(0)
@@ -18,7 +13,7 @@ def list_division(my_list_1, my_list_2, list_length):
             print("wrong type")
             div.append(0)
             continue
-        except ValueError:
+        except IndexError:
             print("out of range")
             div.append(0)
             continue
