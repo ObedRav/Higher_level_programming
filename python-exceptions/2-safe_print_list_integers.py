@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 def safe_print_list_integers(my_list=[], x=0):
-    numbers_printing = 0
+    count = 0
     try:
         for i in range(x):
-            print("{:d}".format(my_list[i]), end="")
-            numbers_printing += 1
-        if (x > i):
-            raise IndexError("list index out of range")
-    finally:
+            if isinstance(my_list[i], int):
+                print("{:d}".format(my_list[i]), end="")
+                count += 1
         print()
-        return numbers_printing
+    except IndexError:
+        raise
+    return count
