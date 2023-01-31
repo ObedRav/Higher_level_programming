@@ -39,7 +39,7 @@ def mul(a, b):
 
 
 def div(a, b):
-    """My division function
+    """My  function
 
     Args:
         a: first integer
