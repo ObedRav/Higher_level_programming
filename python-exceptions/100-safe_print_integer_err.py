@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-from sys import stderr as tderr
+import sys
 
 
 def safe_print_integer_err(value):
-    string = "Exception: Unknown format code 'd'"
     try:
         print("{:d}".format(value))
         return True
-    except (ValueError, TypeError):
-        tderr.write(f"{string} for object of type 'str'\n")
+    except ValueError as err:
+        print(f"Exception: {(err.args[0])}", file=sys.stderr)
         return False
