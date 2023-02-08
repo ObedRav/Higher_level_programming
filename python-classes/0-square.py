@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" Hola """
+
 class Square:
     """The summary line for a class docstring should fit on one line.
 
