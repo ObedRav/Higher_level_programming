@@ -11,7 +11,8 @@ class Square:
             raise TypeError("size must be an integer")
         if size < 0:  # If size is negative
             raise ValueError("size must be >= 0")
-        if isinstance(position, tuple) and len(position) == 2 and all(map(lambda x: isinstance(x, (float, int)) and x >= 0, position)):
+        if isinstance(position, tuple) and len(position) == 2 and \
+            all(map(lambda x: isinstance(x, (float, int)) and x >= 0, position)):
             self.__position = position
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -36,7 +37,8 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if isinstance(value, tuple) and len(value) == 2 and all(map(lambda x: isinstance(x, (float, int)), value)):
+        if isinstance(value, tuple) and len(value) == 2 and\
+            all(map(lambda x: isinstance(x, (float, int)), value)):
             self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -50,6 +52,7 @@ class Square:
         and print spaces depending on the value of position"""
         if self.__size == 0:
             print()
+            return
         if self.__position[1] > 0:
             for i in range(self.__position[1]):
                 print()
