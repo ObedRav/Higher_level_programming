@@ -11,7 +11,7 @@ class Square:
             raise TypeError("size must be an integer")
         if size < 0:  # If size is negative
             raise ValueError("size must be >= 0")
-        if isinstance(position, tuple) and len(position) == 2 and all(map(lambda x: isinstance(x, (float, int)) and x < 0, position)):
+        if isinstance(position, tuple) and len(position) == 2 and all(map(lambda x: isinstance(x, (float, int)) and x > 0, position)):
             self.__position = position
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
