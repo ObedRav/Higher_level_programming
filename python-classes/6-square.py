@@ -5,19 +5,21 @@
 class Square:
     """ This is a class that have size as a private property and
         run vallidations to the arguments"""
-    def __init__(self, size=0, position=(0,0)):
+    def __init__(self, size=0, position=(0, 0)):
         """ Attributes: size (int): size of the square """
         if not isinstance(size, int):  # If size is not an integer
             raise TypeError("size must be an integer")
         if size < 0:  # If size is negative
             raise ValueError("size must be >= 0")
-        if isinstance(position, tuple) and len(position) == 2 and \
-            all(map(lambda x: isinstance(x, (float, int)) and x >= 0, position)):
+        if isinstance(position, tuple) and len(position) == 2 and\
+           all(map
+           (
+            lambda x: isinstance(x, (float, int)) and x >= 0, position
+           )):
             self.__position = position
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__size = size
-        
 
     @property
     def size(self):
@@ -38,7 +40,7 @@ class Square:
     @position.setter
     def position(self, value):
         if isinstance(value, tuple) and len(value) == 2 and\
-            all(map(lambda x: isinstance(x, (float, int)), value)):
+           all(map(lambda x: isinstance(x, (float, int)), value)):
             self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
