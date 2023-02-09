@@ -37,7 +37,7 @@ class Square:
 
     def __lt__(self, comparison):
         return self.__size < comparison
-    
+
     def __le__(self, comparison):
         return self.__size <= comparison
 
