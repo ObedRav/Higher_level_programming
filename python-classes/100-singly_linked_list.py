@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+""" This module is about define a Singly Linke List """
 class Node:
+    """ This class represents the node in the Singly Linke List"""
     def __init__(self, data: int, next_node=None):
         if not isinstance(data, int):
             raise TypeError("data must be an integer")
@@ -27,10 +29,12 @@ class Node:
         self.__next_node = value
 
 class SinglyLinkedList:
+    """ This class represents a list of linked lists """
     def __init__(self):
         self.head = None
     
     def sorted_insert(self, value: int):
+        """ This method is used to add a new item to the list """
         new_node = Node(value)
 
         if self.head is None or self.head.data >= value:
