@@ -30,10 +30,10 @@ class Square:
         return self.__size * self.__size
 
     def __gt__(self, comparison):
-        return self.__size >= comparison
+        return self.__size > comparison
 
     def __ge__(self, comparison):
-        return self.__size > comparison
+        return self.__size >= comparison
 
     def __lt__(self, comparison):
         return self.__size < comparison
