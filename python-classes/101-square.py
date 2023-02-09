@@ -70,7 +70,7 @@ class Square:
         and print spaces depending on the value of position"""
         if self.__size == 0:
             return ""
-        
+
         rows = []
         for i in range(self.__position[1]):
             rows.append("")
@@ -81,4 +81,3 @@ class Square:
             rows.append(row)
 
         return '\n'.join(rows)
-
