@@ -43,3 +43,6 @@ class Square:
 
     def __ne__(self, comparison):
         return self.__size != comparison
+
+    def __eq__(self, comparison):
+        return self.__size == comparison
