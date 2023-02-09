@@ -4,8 +4,7 @@ import math
 
 class MagicClass:
     """ This class represents a magic class """
-    def __init__(self, radius):
-        self.__radius = 0
+    def __init__(self, radius = 0):
         if type(radius) not in (int, float):
             raise TypeError("radius must be a number")
         self.__radius = radius
