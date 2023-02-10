@@ -12,9 +12,11 @@ Module Attributes:
 - None
 """
 
-def print_square(size: int) -> None:
+
+def print_square(size: int = 0) -> None:
     """
-    This function takes in an integer `size` and prints a square of `#` characters
+    This function takes in an integer `size`
+    and printsa square of `#` characters
     with a side length of `size`.
 
     Parameters:

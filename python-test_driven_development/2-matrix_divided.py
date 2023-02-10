@@ -12,6 +12,7 @@ Module Attributes:
 - None
 """
 
+
 def matrix_divided(matrix=[[1]], div=1):
     """ This function divides all elements of a matrix by a number.
 
