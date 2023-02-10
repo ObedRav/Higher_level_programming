@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This code test itself"""
 
+
 def text_indentation(text):
     """This function print a new line if the text == .?:"""
     i = 0
