@@ -6,11 +6,7 @@ Module Description:
 This module contains only one function
 
 Module Functions:
-- say_my_name(first_name="", last_name=""): A function that takes
-  in two string arguments, first_name and last_name.
-  If either argument is not a string, a TypeError is raised.
-  The function then prints out the full name with a message,
-  "My name is {first_name} {last_name}".
+- say_my_name(first_name="", last_name="")
 
 Module Attributes:
 - None

@@ -1,0 +1,45 @@
+Say My Name
+================
+
+This function takes in a positive integer size as an argument and prints a
+square made of # symbols of the given size to the standard output.
+
+Function Signature
+------------------
+```def print_square(size: int) -> None:
+    ...
+```
+
+Input
+------------------
+```size```: A positive integer, representing the size of the square.
+
+Output
+------------------
+None. The function just prints the square to the standard output.
+
+Raises
+------------------
+```TypeError```: If size is not an integer.
+```ValueError```: If size is negative.
+
+Example
+------------------
+>>> print_square = __import__("4-print_square").print_square
+>>> print_square(4)
+####
+####
+####
+####
+>>> print_square(2)
+##
+##
+>>> print_square(0)
+>>> print_square(-4)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+>>> print_square("a")
+Traceback (most recent call last):
+...
+TypeError: size must be an integer

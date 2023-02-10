@@ -6,10 +6,7 @@ Module Description:
 This module contains a single function, `matrix_divided`
 
 Module Functions:
-- matrix_divided(matrix=[[1]], div=1): takes
-  in a matrix (a list of lists) of integers or floats and a number,
-  and returns a new matrix where each element is divided by the number.
-  The division should be accurate to 2 decimal places.
+- matrix_divided(matrix=[[1]], div=1)
 
 Module Attributes:
 - None
