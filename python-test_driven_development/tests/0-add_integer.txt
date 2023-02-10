@@ -1,0 +1,55 @@
+# 0-add_integers.txt
+
+==================================
+How to use 0-add_integer.py
+==================================
+
+This file is very simple, since it only has one function called
+``add_integer()``.
+
+Numbers
+========
+``add_integer()`` returns the addition os its arguments. For numbers,
+that value is equivalent to using the ``+`` operator.
+
+::
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(1, 2)
+    3
+
+    >>> add_integer(100, -2)
+    98
+
+The second value is formatted to 98, for that reason
+
+::
+    >>> add_integer(2)
+    100
+
+    >>> add_integer(1)
+    99
+
+    >>> add_integer(5)
+    103
+
+It also works with floating-point values.
+
+::
+
+    >>> add_integer(100.3, -2)
+    98
+
+Non-Numbers
+============
+``add_integer()`` returns a string representation if a non_number is passed
+as an argument
+
+::
+
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
