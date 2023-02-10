@@ -15,7 +15,7 @@ Module Attributes:
 
 class Rectangle:
     """Empty class to represent a rectangle"""
-    def __init__(self, height: int = 0, width: int = 0):
+    def __init__(self, width: int = 0, height: int = 0):
         # Vallidations
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
