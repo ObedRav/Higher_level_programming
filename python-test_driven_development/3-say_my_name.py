@@ -13,7 +13,7 @@ Module Attributes:
 """
 
 
-def say_my_name(first_name: str = "", last_name: str = "") -> None:
+def say_my_name(first_name: str, last_name: str = "") -> None:
     """
     Prints the full name, given a first name and a last name.
 
