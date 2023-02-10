@@ -15,7 +15,8 @@ Module Attributes:
 
 class Rectangle:
     """Empty class to represent a rectangle"""
-    all = []
+    number_of_instances = 0
+
     def __init__(self, width: int = 0, height: int = 0):
         # Vallidations
         if not isinstance(width, int):
@@ -30,7 +31,8 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
-        self.all.append(self)
+        Rectangle.number_of_instances += 1
+
 
     @property
     def width(self) -> int:
@@ -75,4 +77,5 @@ class Rectangle:
         return f"{self.__class__.__name__}({self.__width}, {self.__height})"
 
     def __del__(self) -> None:
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
