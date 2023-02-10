@@ -1,11 +1,19 @@
 #!/usr/bin/python3
 """
-This module contains a single function, `matrix_divided`, which takes
-in a matrix (a list of lists) of integers or floats and a number,
-and returns a new matrix where each element is divided by the number.
-The division should be accurate to 2 decimal places.
-"""
+Module Name: 3-say_my_name
 
+Module Description:
+This module contains a single function, `matrix_divided`
+
+Module Functions:
+- matrix_divided(matrix=[[1]], div=1): takes
+  in a matrix (a list of lists) of integers or floats and a number,
+  and returns a new matrix where each element is divided by the number.
+  The division should be accurate to 2 decimal places.
+
+Module Attributes:
+- None
+"""
 
 def matrix_divided(matrix=[[1]], div=1):
     """ This function divides all elements of a matrix by a number.

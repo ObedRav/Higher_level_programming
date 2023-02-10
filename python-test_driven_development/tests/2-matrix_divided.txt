@@ -1,13 +1,15 @@
 Matrix Divided
 ==============
 
-This function takes in a matrix (a list of lists) of integers or floats and a number, and returns a new matrix where each element is divided by the number. The division should be accurate to 2 decimal places.
+This function takes in a matrix (a list of lists) of integers or floats and a
+number, and returns a new matrix where each element is divided by the number.
+The division should be accurate to 2 decimal places.
 
 Function Signature
 ------------------
-```python
-def matrix_divided(matrix, div):
-    ... ```
+``def matrix_divided(matrix, div):
+    ...
+```
 
 Input
 ------------------

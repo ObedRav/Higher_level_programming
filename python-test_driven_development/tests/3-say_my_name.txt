@@ -1,0 +1,40 @@
+Say My Name
+================
+
+This function takes two arguments first_name and last_name
+and returns a string containing a message with the full name.
+
+Function Signature
+------------------
+```def say_my_name(first_name: str, last_name: str = "") -> None:
+    ...
+```
+
+Input
+------------------
+```first_name```: A string representing the first name of a person.
+```last_name```: A string representing the last name of a person.
+                 This argument is optional, and if not provided, will default to an empty string.
+
+Output
+------------------
+This function returns None, but it prints the message "My name is first_name last_name".
+
+Raises
+------------------
+```TypeError```: If the first argument first_name is not a string.
+```TypeError```: If the second argument last_name is not a string.
+
+Example
+------------------
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+>>> say_my_name("Juan") #doctest: +NORMALIZE_WHITESPACE
+My name is Juan
+>>> say_my_name("John", "Doe")
+My name is John Doe
+>>> say_my_name(123, "Doe")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+>>> say_my_name("Juan", 123)
+Traceback (most recent call last):
+TypeError: last_name must be a string
