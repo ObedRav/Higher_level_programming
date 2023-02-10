@@ -8,7 +8,7 @@ this function is add_integer
 
 def add_integer(a, b=98):
     """ This function adds two integers.
-    The second integer is set to 98 by default. 
+    The second integer is set to 98 by default.
     """
 
     if not isinstance(a, int) and not isinstance(a, float):

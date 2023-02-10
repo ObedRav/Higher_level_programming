@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-This module contains a single function, `matrix_divided`, which takes in a matrix (a list of lists)
-of integers or floats and a number, and returns a new matrix where each element is divided by the number.
+This module contains a single function, `matrix_divided`, which takes
+in a matrix (a list of lists) of integers or floats and a number,
+and returns a new matrix where each element is divided by the number.
 The division should be accurate to 2 decimal places.
 """
 
@@ -17,7 +18,8 @@ def matrix_divided(matrix, div):
     list of lists: The resulting matrix after division
 
     Raises:
-    TypeError: If `div` is not a number, or if the elements of `matrix` are not integers or floats
+    TypeError: If `div` is not a number, or if the elements of `matrix`
+               are not integers or floats
     ZeroDivisionError: If `div` is equal to 0
     TypeError: If not all rows in `matrix` have the same length
 
@@ -47,5 +49,6 @@ def matrix_divided(matrix, div):
             if not isinstance(element, (int, float)):
                 raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
 
-    new_matrix = [[round(element / div, 2) for element in row] for row in matrix]
+    new_matrix = \
+        [[round(element / div, 2) for element in row] for row in matrix]
     return new_matrix
