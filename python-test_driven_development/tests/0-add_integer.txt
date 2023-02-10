@@ -39,6 +39,23 @@ It also works with floating-point values.
     >>> add_integer(100.3, -2)
     98
 
+If ones of the arguments are ('inf') the function returns 89
+
+::
+
+    >>> add_integer(3, float('inf'))
+    89
+
+If ones of the arguments are ('NaN') this arguments will be formatted to 89
+
+::
+
+    >>> add_integer(3, float('NaN'))
+    92
+
+    >>> add_integer(5, float('NaN'))
+    94
+
 Non-Numbers
 ============
 ``add_integer()`` returns a string representation if a non_number is passed
