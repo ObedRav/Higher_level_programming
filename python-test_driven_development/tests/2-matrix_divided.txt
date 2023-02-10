@@ -1,0 +1,51 @@
+Matrix Divided
+==============
+
+This function takes in a matrix (a list of lists) of integers or floats and a number, and returns a new matrix where each element is divided by the number. The division should be accurate to 2 decimal places.
+
+Function Signature
+------------------
+```python
+def matrix_divided(matrix, div):
+    ... ```
+
+Input
+------------------
+```matrix```: A list of lists of integers or floats.
+```div:``` A number, which can be either an integer or a float.
+
+Output
+------------------
+A list of lists of integers or floats, where each element is divided by the number.
+
+Raises
+------------------
+```TypeError```: If the input matrix is not a list of lists of integers or floats.
+```TypeError```: If div is not a number.
+```ZeroDivisionError```: If div is equal to 0.
+```TypeError```: If the rows in the input matrix are not of the same length.
+
+Example
+------------------
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> div = 3
+>>> matrix_divided(matrix, div)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
+>>> div = 0
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+>>> div = "hola"
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: div must be a number
+>>> matrix = [[1, 2, 3], [4, 5, 6], [1, 2]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+>>> matrix = [[1, 2, 3], [4, 5, 6], [1, "hi", 3]]
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers or floats
