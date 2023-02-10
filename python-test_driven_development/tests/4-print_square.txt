@@ -1,4 +1,4 @@
-Say My Name
+Print Square
 ================
 
 This function takes in a positive integer size as an argument and prints a
