@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#!/usr/bin/python3
 """
 Module Name: 0-rectangle
 
@@ -67,3 +68,6 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         return "\n".join("".join("#" for _ in range(self.__width)) for _ in range(self.__height))
+
+    def __repr__(self) -> str:
+        return f"{self.__class__.__name__}({self.__width}, {self.__height})"
