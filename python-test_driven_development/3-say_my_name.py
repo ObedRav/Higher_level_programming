@@ -6,7 +6,7 @@ Module Description:
 This module contains only one function
 
 Module Functions:
-- say_my_name(first_name="", last_name=""): A function that takes 
+- say_my_name(first_name="", last_name=""): A function that takes
   in two string arguments, first_name and last_name.
   If either argument is not a string, a TypeError is raised.
   The function then prints out the full name with a message,
@@ -47,4 +47,4 @@ def say_my_name(first_name: str = "", last_name: str = "") -> None:
     if not isinstance(last_name, str):
         raise TypeError("last_name must be a string")
 
-    print(f"My name is {first_name} {last_name}")
+    print("My name is {:s} {:s}".format(first_name, last_name))
