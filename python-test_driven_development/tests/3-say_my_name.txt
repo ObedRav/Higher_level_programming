@@ -41,3 +41,5 @@ Traceback (most recent call last):
 TypeError: last_name must be a string
 >>> say_my_name() #doctest: +NORMALIZE_WHITESPACE
 My name is
+>>> say_my_name("", "") #doctest: +NORMALIZE_WHITESPACE
+My name is
