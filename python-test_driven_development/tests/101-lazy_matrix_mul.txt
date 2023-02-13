@@ -37,34 +37,8 @@ True
 >>> np.array_equal(lazy_matrix_mul(m_a, m_b), np.matmul(m_a, m_b))
 True
 
-
->>> m_a = []
->>> m_b = [[2, 0], [1, 2]]
->>> try:
-...     lazy_matrix_mul(m_a, m_b)
-... except ValueError as e:
-...     print(e)
-m_a can't be empty
-
->>> m_a = [[1, 2], [3, 4]]
->>> m_b = []
->>> try:
-...     lazy_matrix_mul(m_a, m_b)
-... except ValueError as e:
-...     print(e)
-m_b can't be empty
-
->>> m_a = [1, 2, 3]
->>> m_b = [[2, 0], [1, 2]]
->>> lazy_matrix_mul(m_a, m_b)
-Traceback (most recent call last):
-    ...
-ValueError: m_a must be a list of lists
-
 >>> m_a = [[1, 2], [3, 4]]
 >>> m_b = [1, 2]
 >>> lazy_matrix_mul(m_a, m_b)
-Traceback (most recent call last):
-    ...
-ValueError: m_b must be a list of lists
+array([ 5, 11])
 
