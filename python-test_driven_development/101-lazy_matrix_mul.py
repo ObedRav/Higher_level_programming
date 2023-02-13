@@ -4,10 +4,6 @@ This module contains functions to manipulate
 matrices and check their properties.
 
 Functions:
-- `is_matrix(lst)`
-- `is_the_same_size(lst)`
-- `is_matrix_empty(matrix)`
-- `is_matrix_of_numbers(matrix)`
 - `def lazy_matrix_mul(m_a, m_b)``
 
 Modules Imported:
@@ -17,84 +13,13 @@ Modules Imported:
 
 import numpy as np
 
-def is_matrix(lst):
-    """
-    Checks if the input is a matrix (a list of lists)
-    
-    Examples:
-    >>> is_matrix([[1, 2, 3], [4, 5, 6]])
-    True
-    >>> is_matrix([[1, 2, 3], [4, 5, 6], []])
-    True
-    >>> is_matrix([1, 2, 3])
-    False
-    >>> is_matrix([[]])
-    True
-    """
-    if all(isinstance(i, list) for i in lst):
-        return True
-
-
-def is_the_same_size(lst):
-    """
-    Checks if all rows in the matrix have the same size
-    
-    Examples:
-    >>> is_the_same_size([[1, 2, 3], [4, 5, 6]])
-    True
-    >>> is_the_same_size([[1, 2, 3], [4, 5, 6, 7]])
-    False
-    >>> is_the_same_size([[]])
-    True
-    """
-    num_cols = len(lst[0])
-    return all(len(i) == num_cols for i in lst)
-
-
-def is_matrix_empty(matrix):
-    """
-    Checks if the matrix is empty (all rows are empty lists)
-    
-    Examples:
-    >>> is_matrix_empty([[1, 2, 3], [4, 5, 6]])
-    False
-    >>> is_matrix_empty([[], []])
-    True
-    >>> is_matrix_empty([[]])
-    True
-    """
-    return all(not row for row in matrix)
-
-
-def is_matrix_of_numbers(matrix):
-    """
-    Checks if all elements in the matrix are either integers or floats
-    
-    Examples:
-    >>> is_matrix_of_numbers([[1, 2, 3], [4, 5, 6]])
-    True
-    >>> is_matrix_of_numbers([[1, 2, 3], [4, 5, '6']])
-    False
-    >>> is_matrix_of_numbers([[]])
-    True
-    """
-    for row in matrix:
-        for element in row:
-            if not isinstance(element, (int, float)):
-                return False
-    return True
 
 def lazy_matrix_mul(m_a, m_b):
     """
     This function calculates the product of two matrices, m_a and m_b,
-    using a lazy evaluation approach and NumPy's np.matmul function.
-    It performs several checks on the input matrices to ensure
-    they are valid matrices (a list of lists containing integers or floats,
-    with all rows having the same length, and not empty)
-    before performing the matrix multiplication.
-    If the input matrices are not valid, it will
-    raise various exceptions (TypeError or ValueError)
-    to indicate the error.
+    using NumPy's np.matmul function.
+    It assumes that the input matrices are valid and will not perform
+    any checks to ensure they are.
 
     Input:
     m_a: list of lists of integers or floats
@@ -103,13 +28,13 @@ def lazy_matrix_mul(m_a, m_b):
     Output:
     new_matrix: The product of m_a and m_b, as a NumPy array.
 
-    Exceptions Raised:
-    TypeError: If m_a or m_b is not a list, or if m_a or m_b is not a matrix (a list of lists),
-               or if each row of m_a or m_b is not of the same size, or if m_a or m_b contains
-               elements that are not integers or floats.
-    ValueError: If m_a or m_b is empty, or if m_a and m_b cannot be multiplied.
+    Example:
+    >>> a = np.array([[1, 2], [3, 4]])
+    >>> b = np.array([[2, 0], [1, 2]])
+    >>> lazy_matrix_mul(a, b) #doctest: +NORMALIZE_WHITESPACE +ELLIPSIS +REPORT_NDIFF
+    array([[ 4, 4],
+           [10,  8]])
+
     """
-
     new_matrix = np.matmul(m_a, m_b)
-
     return new_matrix

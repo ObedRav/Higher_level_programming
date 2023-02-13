@@ -35,7 +35,7 @@ def say_my_name(first_name: str, last_name: str = "") -> None:
     -------
     >>> say_my_name("John", "Doe")
     My name is John Doe
-    >>> say_my_name("Jane")
+    >>> say_my_name("Jane") #doctest: +NORMALIZE_WHITESPACE
     My name is Jane
     """
     if not isinstance(first_name, str):

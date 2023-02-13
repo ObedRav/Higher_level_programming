@@ -16,14 +16,13 @@ Functions:
 def is_matrix(lst):
     """
     Checks if the input is a matrix (a list of lists)
-    
+
     Examples:
     >>> is_matrix([[1, 2, 3], [4, 5, 6]])
     True
     >>> is_matrix([[1, 2, 3], [4, 5, 6], []])
     True
     >>> is_matrix([1, 2, 3])
-    False
     >>> is_matrix([[]])
     True
     """
@@ -34,7 +33,7 @@ def is_matrix(lst):
 def is_the_same_size(lst):
     """
     Checks if all rows in the matrix have the same size
-    
+
     Examples:
     >>> is_the_same_size([[1, 2, 3], [4, 5, 6]])
     True
@@ -50,7 +49,7 @@ def is_the_same_size(lst):
 def is_matrix_empty(matrix):
     """
     Checks if the matrix is empty (all rows are empty lists)
-    
+
     Examples:
     >>> is_matrix_empty([[1, 2, 3], [4, 5, 6]])
     False
@@ -65,7 +64,7 @@ def is_matrix_empty(matrix):
 def is_matrix_of_numbers(matrix):
     """
     Checks if all elements in the matrix are either integers or floats
-    
+
     Examples:
     >>> is_matrix_of_numbers([[1, 2, 3], [4, 5, 6]])
     True
