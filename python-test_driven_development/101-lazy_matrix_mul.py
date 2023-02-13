@@ -8,10 +8,14 @@ Functions:
 - `is_the_same_size(lst)`
 - `is_matrix_empty(matrix)`
 - `is_matrix_of_numbers(matrix)`
-- `matrix_mul(m_a, m_b)`
+- `def lazy_matrix_mul(m_a, m_b)``
+
+Modules Imported:
+- NumPy
 
 """
 
+import numpy as np
 
 def is_matrix(lst):
     """
@@ -80,35 +84,31 @@ def is_matrix_of_numbers(matrix):
                 return False
     return True
 
-
-def matrix_mul(m_a, m_b):
+def lazy_matrix_mul(m_a, m_b):
     """
-    Multiplies two matrices m_a and m_b.
+    This function calculates the product of two matrices, m_a and m_b,
+    using a lazy evaluation approach and NumPy's np.matmul function.
+    It performs several checks on the input matrices to ensure
+    they are valid matrices (a list of lists containing integers or floats,
+    with all rows having the same length, and not empty)
+    before performing the matrix multiplication.
+    If the input matrices are not valid, it will
+    raise various exceptions (TypeError or ValueError)
+    to indicate the error.
 
-    Args:
-    m_a (list of lists): The first matrix to be multiplied.
-    m_b (list of lists): The second matrix to be multiplied.
+    Input:
+    m_a: list of lists of integers or floats
+    m_b: list of lists of integers or floats
 
-    Returns:
-    list of lists: The result of the multiplication of two matrices.
+    Output:
+    new_matrix: The product of m_a and m_b, as a NumPy array.
 
-    Raises:
-    TypeError: If m_a or m_b is not a list.
-    ValueError: If m_a or m_b is not a matrix, empty,
-                or not all elements are integers or floats.
-    ValueError: If m_a and m_b can't be multiplied.
-
-    Examples:
-    >>> matrix_mul([[1, 2], [3, 4]], [[2, 0], [1, 2]])
-    [[4, 4], [10, 8]]
-
-    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
-    [[58, 64], [139, 154]]
-
-    >>> matrix_mul([[1, 2], [3, 4]], [[1], [1]])
-    [[3], [7]]
+    Exceptions Raised:
+    TypeError: If m_a or m_b is not a list, or if m_a or m_b is not a matrix (a list of lists),
+               or if each row of m_a or m_b is not of the same size, or if m_a or m_b contains
+               elements that are not integers or floats.
+    ValueError: If m_a or m_b is empty, or if m_a and m_b cannot be multiplied.
     """
-    # Vallidations
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
     if not isinstance(m_b, list):
@@ -129,49 +129,9 @@ def matrix_mul(m_a, m_b):
         raise TypeError("each row of m_a must be of the same size")
     if not is_the_same_size(m_b):
         raise TypeError("each row of m_b must be of the same size")
-
-    # Calculate the columns and rows
-    columns_a = len(m_a)
-    rows_a = len(m_a[0])
-    matrix_size_a = [columns_a, rows_a]
-
-    columns_b = len(m_b)
-    rows_b = len(m_b[0])
-    matrix_size_b = [columns_b, rows_b]
-
-    decisition = ""
-    size_new_matrix = []
-
-    # Check if AB is posible
-    if matrix_size_a[1] == matrix_size_b[0]:
-        decisition = "AB"
-        size_new_matrix = [columns_a, rows_b]
-    # Check if BA is posible
-    elif matrix_size_b[1] == matrix_size_a[0]:
-        decisition = "BA"
-        size_new_matrix = [columns_b, rows_a]
-    else:
-        raise ValueError("m_a and m_b can't be multiplied")
-
-    # Inicialize the matrix
-    new_matrix_rows = size_new_matrix[0]
-    new_matrix_columns = size_new_matrix[1]
-    new_matrix = []
-    for i in range(new_matrix_rows):
-        row = [0 for _ in range(new_matrix_columns)]
-        new_matrix.append(row)
-
-    if decisition == "BA":
-        matrix_mul = m_b
-        matrix_mul_2 = m_a
-    else:
-        matrix_mul = m_a
-        matrix_mul_2 = m_b
-
-    # Mulitplication
-    for i in range(len(matrix_mul)):
-        for j in range(len(matrix_mul_2[0])):
-            for k in range(len(matrix_mul_2)):
-                new_matrix[i][j] += m_a[i][k] * m_b[k][j]
+    try:
+        new_matrix = np.matmul(m_a, m_b)
+    except:
+        print("m_a and m_b can't be multiplied")
 
     return new_matrix

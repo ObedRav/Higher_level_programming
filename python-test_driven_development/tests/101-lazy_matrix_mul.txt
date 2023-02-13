@@ -1,0 +1,70 @@
+Matrix Mul - multiplies two matrices
+================================================================
+
+This function calculates the product of two matrices, m_a and m_b,
+using a lazy evaluation approach and NumPy's np.matmul function.
+It performs several checks on the input matrices to ensure
+they are valid matrices (a list of lists containing integers or floats,
+with all rows having the same length, and not empty)
+before performing the matrix multiplication.
+If the input matrices are not valid, it will
+raise various exceptions (TypeError or ValueError)
+to indicate the error.
+
+Args:
+    matrix1 (List[List[int]]): The first matrix to be multiplied.
+    matrix2 (List[List[int]]): The second matrix to be multiplied.
+
+Returns:
+    new_matrix: The product of m_a and m_b, as a NumPy array.
+
+Raises:
+    TypeError: If the two matrices are not lists of lists of integers.
+    ValueError: If the two matrices can not be multiplied.
+
+Examples:
+
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+>>> import numpy as np
+
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[2, 0], [1, 2]]
+>>> np.array_equal(lazy_matrix_mul(m_a, m_b), np.matmul(m_a, m_b))
+True
+
+>>> m_a = [[1, 2, 3], [4, 5, 6]]
+>>> m_b = [[2, 0], [1, 2], [3, 4]]
+>>> np.array_equal(lazy_matrix_mul(m_a, m_b), np.matmul(m_a, m_b))
+True
+
+
+>>> m_a = []
+>>> m_b = [[2, 0], [1, 2]]
+>>> try:
+...     lazy_matrix_mul(m_a, m_b)
+... except ValueError as e:
+...     print(e)
+m_a can't be empty
+
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = []
+>>> try:
+...     lazy_matrix_mul(m_a, m_b)
+... except ValueError as e:
+...     print(e)
+m_b can't be empty
+
+>>> m_a = [1, 2, 3]
+>>> m_b = [[2, 0], [1, 2]]
+>>> lazy_matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+ValueError: m_a must be a list of lists
+
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [1, 2]
+>>> lazy_matrix_mul(m_a, m_b)
+Traceback (most recent call last):
+    ...
+ValueError: m_b must be a list of lists
+
