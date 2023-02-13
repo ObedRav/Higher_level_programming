@@ -17,7 +17,7 @@ def add_integer(a, b=98) -> int:
     """
     This function adds two numbers, a and b, and returns the sum.
     If a or b is not an integer or a float, a TypeError is raised.
-    If the result of the addition is positive or negative infinity, 
+    If the result of the addition is positive or negative infinity,
     89 is returned.
     Otherwise, the sum is returned as an integer.
 
