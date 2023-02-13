@@ -17,7 +17,8 @@ def add_integer(a, b=98) -> int:
     """
     This function adds two numbers, a and b, and returns the sum.
     If a or b is not an integer or a float, a TypeError is raised.
-    If the result of the addition is positive or negative infinity, 89 is returned.
+    If the result of the addition is positive or negative infinity, 
+    89 is returned.
     Otherwise, the sum is returned as an integer.
 
     Input:
@@ -32,9 +33,9 @@ def add_integer(a, b=98) -> int:
     """
 
     if not isinstance(a, int) and not isinstance(a, float):
-        raise TypeError("a must be an integer or float")
+        raise TypeError("a must be an integer")
     if not isinstance(b, int) and not isinstance(b, float):
-        raise TypeError("b must be an integer or float")
+        raise TypeError("b must be an integer")
 
     a = 89 if a != a else a
     b = 89 if b != b else b
