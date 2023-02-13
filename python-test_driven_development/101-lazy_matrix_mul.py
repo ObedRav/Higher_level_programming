@@ -109,6 +109,26 @@ def lazy_matrix_mul(m_a, m_b):
                elements that are not integers or floats.
     ValueError: If m_a or m_b is empty, or if m_a and m_b cannot be multiplied.
     """
+    if not isinstance(m_a, list):
+        raise TypeError("m_a must be a list")
+    if not isinstance(m_b, list):
+        raise TypeError("m_b must be a list")
+    if not is_matrix(m_a):
+        raise ValueError("m_a must be a list of lists")
+    if not is_matrix(m_b):
+        raise ValueError("m_b must be a list of lists")
+    if is_matrix_empty(m_a):
+        raise ValueError("m_a can't be empty")
+    if is_matrix_empty(m_b):
+        raise ValueError("m_b can't be empty")
+    if not is_matrix_of_numbers(m_a):
+        raise TypeError("m_a should contain only integers or floats")
+    if not is_matrix_of_numbers(m_b):
+        raise TypeError("m_b should contain only integers or floats")
+    if not is_the_same_size(m_a):
+        raise TypeError("each row of m_a must be of the same size")
+    if not is_the_same_size(m_b):
+        raise TypeError("each row of m_b must be of the same size")
 
     new_matrix = np.matmul(m_a, m_b)
 
