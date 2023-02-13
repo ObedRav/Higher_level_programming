@@ -31,7 +31,7 @@ def lazy_matrix_mul(m_a, m_b):
     Example:
     >>> a = np.array([[1, 2], [3, 4]])
     >>> b = np.array([[2, 0], [1, 2]])
-    >>> lazy_matrix_mul(a, b) #doctest: +NORMALIZE_WHITESPACE +ELLIPSIS +REPORT_NDIFF
+    >>> lazy_matrix_mul(a, b) #doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
     array([[ 4, 4],
            [10,  8]])
 
