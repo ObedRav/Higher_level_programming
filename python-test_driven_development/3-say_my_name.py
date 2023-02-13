@@ -6,7 +6,7 @@ Module Description:
 This module contains only one function
 
 Module Functions:
-- say_my_name(first_name="", last_name="")
+- say_my_name(first_name="", last_name="") -> None
 
 Module Attributes:
 - None

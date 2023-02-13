@@ -2,14 +2,9 @@ Matrix Mul - multiplies two matrices
 ================================================================
 
 This function calculates the product of two matrices, m_a and m_b,
-using a lazy evaluation approach and NumPy's np.matmul function.
-It performs several checks on the input matrices to ensure
-they are valid matrices (a list of lists containing integers or floats,
-with all rows having the same length, and not empty)
-before performing the matrix multiplication.
-If the input matrices are not valid, it will
-raise various exceptions (TypeError or ValueError)
-to indicate the error.
+using NumPy's np.matmul function.
+It assumes that the input matrices are valid and will not perform
+any checks to ensure they are.
 
 Args:
     matrix1 (List[List[int]]): The first matrix to be multiplied.

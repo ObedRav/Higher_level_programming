@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module Name: 3-say_my_name
+Module Name: 2-matrix_divided
 
 Module Description:
 This module contains a single function, `matrix_divided`

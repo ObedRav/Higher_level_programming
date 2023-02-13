@@ -1,7 +1,4 @@
-# 0-add_integers.txt
-
-==================================
-How to use 0-add_integer.py
+Add Integer
 ==================================
 
 This file is very simple, since it only has one function called

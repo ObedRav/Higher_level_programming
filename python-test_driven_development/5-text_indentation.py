@@ -1,9 +1,41 @@
 #!/usr/bin/python3
-"""This code test itself"""
+"""
+Module Name: 5-text_indentation
+
+Module Description:
+This module contains only one function
+
+Module Functions:
+- def text_indentation(text) -> None
+
+Module Attributes:
+- None
+"""
 
 
-def text_indentation(text):
-    """This function print a new line if the text == .?:"""
+def text_indentation(text) -> None:
+    """
+    This function takes a string `text` as input and adds new line characters after each sentence,
+    ending with `.`, `?` or `:`.
+
+    Input:
+    text: A string representing the text to be indented.
+
+    Output:
+    None. The function outputs the indented text directly to the console.
+
+    Exceptions Raised:
+    TypeError: If `text` is not a string.
+
+    Example:
+    >>> text_indentation("Example text. Second line. Third line?")
+    Example text.
+    <BLANKLINE>
+    Second line.
+    <BLANKLINE>
+    Third line?
+    <BLANKLINE>
+    """
     i = 0
     if type(text) != str:
         raise TypeError('text must be a string')
