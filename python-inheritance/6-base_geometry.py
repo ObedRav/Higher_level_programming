@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module Name: 5-base_geometry
+Module Name: 6-base_geometry
 
 Module Description:
 This module contains only one function
