@@ -1,4 +1,17 @@
 #!/usr/bin/python3
+"""
+Module Name: 2-is_same_class
+
+Module Description:
+This module contains only one function
+
+Module Functions:
+- is_same_class
+
+Module Attributes:
+- None
+"""
+
 
 def is_same_class(obj, a_class):
     """
