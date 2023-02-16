@@ -22,7 +22,8 @@ def is_kind_of_class(obj, a_class):
     - a_class: the class to compare the object against.
 
     Returns:
-    - True if the object is an instance of the class or a subclass, False otherwise.
+    - True if the object is an instance of the class or a subclass,
+    False otherwise.
 
     Example usage:
     >>> class MyClass:
