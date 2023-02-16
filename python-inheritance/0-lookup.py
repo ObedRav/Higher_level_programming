@@ -15,7 +15,7 @@ Module Attributes:
 
 def lookup(obj):
     """
-    Print a list of all the attributes and methods of the specified object.
+    Return a list of all the attributes and methods of the specified object.
 
     Parameters:
     -----------
@@ -24,11 +24,13 @@ def lookup(obj):
 
     Returns:
     --------
-    None.
+    list of str
+        A list of all the attributes and methods of the specified object.
 
-    This function uses the built-in `dir()` function to retrieve
-    a list of all the attributes and methods of the specified object.
-    The list is printed to the console for easy inspection.
+    This function uses the built-in `dir()` function to retrieve a list
+    of all the attributes and methods of the specified object.
+    The list is returned as a Python list, which can be used for
+    further processing or inspection.
 
     >>> class ExampleClass:
     ...     def __init__(self):
@@ -43,6 +45,5 @@ def lookup(obj):
     '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__',
     '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__',
     '__weakref__', 'foo', 'x']
-
     """
     return (dir(obj))
