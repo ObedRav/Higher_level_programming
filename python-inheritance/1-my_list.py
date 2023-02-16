@@ -1,4 +1,17 @@
 #!/usr/bin/python3
+"""
+Module Name: 1-my_list
+
+Module Description:
+This module contains only one function
+
+Module Classes:
+- MyList
+
+Module Attributes:
+- None
+"""
+
 
 class MyList(list):
     """
