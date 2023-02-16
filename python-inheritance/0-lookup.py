@@ -1,5 +1,16 @@
 #!/usr/bin/python3
+"""
+Module Name: 0-lookup
 
+Module Description:
+This module contains only one function
+
+Module Functions:
+- lookup
+
+Module Attributes:
+- None
+"""
 
 def lookup(obj):
     """
