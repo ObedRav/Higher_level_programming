@@ -22,7 +22,8 @@ def inherits_from(obj, a_class):
     - a_class: the class to compare the object against.
 
     Returns:
-    - True if the object is an instance of a subclass of the class, False otherwise.
+    - True if the object is an instance of a subclass of the class,
+    False otherwise.
 
     Example usage:
     >>> class MyClass:
@@ -35,6 +36,8 @@ def inherits_from(obj, a_class):
     >>> inherits_from(obj, MyClass)
     True
     >>> inherits_from(obj, MySubclass)
+    False
+    >>> inherits_from(obj, int)
     False
     """
     if type(obj) == a_class:
