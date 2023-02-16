@@ -70,13 +70,14 @@ class Rectangle(BaseGeometry):
         12
         """
         return self.__width * self.__height
-    
+
     def __str__(self):
         """
         Returns a string representation of the rectangle.
 
         Returns:
-        - A string that represents the rectangle in the format [Rectangle] <width>/<height>
+        - A string that represents the rectangle in the format
+        [Rectangle] <width>/<height>
 
         Example usage:
         >>> r = Rectangle(3, 4)
