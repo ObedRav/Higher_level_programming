@@ -12,6 +12,7 @@ Module Attributes:
 - None
 """
 
+
 def lookup(obj):
     """
     Print a list of all the attributes and methods of the specified object.
@@ -44,4 +45,4 @@ def lookup(obj):
     '__weakref__', 'foo', 'x']
 
     """
-    print(dir(obj))
+    return (dir(obj))
