@@ -20,9 +20,13 @@ def append_write(filename="", text=""):
 
     Parameters
     ------------
-    filename (optional) : A string that represents the path to the file to be written. If no filename is provided, an empty string will be used as a default value.
-    text (optional) : A string that represents the text to be appended to the file. If no text is provided, an empty string will be used as a default value.
-    
+    filename (optional) : A string that represents the path to the
+                          file to be written. If no filename is provided,
+                          an empty string will be used as a default value.
+    text (optional) : A string that represents the text to be appended
+                      to the file. If no text is provided, an empty string
+                      will be used as a default value.
+
     Returns
     ---------
     An integer that represents the number of characters appended to the file.
