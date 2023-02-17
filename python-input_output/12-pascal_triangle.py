@@ -15,17 +15,19 @@ Module Attributes:
 
 def pascal_triangle(n):
     """
-    This function generates the Pascal's triangle for a given positive integer n.
+    This function generates the Pascal's triangle
+    for a given positive integer n.
 
     Args:
     -------
-    n: A positive integer that represents the number of rows of the Pascal's triangle to be generated.
-    
+    n: A positive integer that represents the number of
+    rows of the Pascal's triangle to be generated.
+
     Returns:
     ---------
-    Returns a list of lists of integers representing the Pascal's triangle of n.
+    Returns a list of lists of integers representing the Pascal's triangle of n
     If n is less than or equal to 0, the function returns an empty list.
-    
+
     Examples:
     ----------
     >>> pascal_triangle(5)
