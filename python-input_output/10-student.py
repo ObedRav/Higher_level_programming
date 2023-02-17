@@ -32,7 +32,7 @@ class Student:
         attribute values. This method is useful for JSON serialization
         of the object.
         """
-        if attributes:
+        if attributes or attributes == []:
             dictionary = {}
             for key, value in self.__dict__.items():
                 if key in attributes:
