@@ -16,15 +16,16 @@ import json
 
 def save_to_json_file(my_obj, filename):
     """
-    This function receives an object and a filename, then it saves the object as a JSON string in the file.
-    
+    This function receives an object and a filename,
+    then it saves the object as a JSON string in the file.
+
     Args:
     - my_obj: the object to be saved as JSON string.
     - filename: the name of the file to save the JSON string.
-    
+
     Returns:
     - The number of characters written to the file.
-    
+
     Raises:
     - TypeError: If the object cannot be serialized to JSON.
     - IOError: If there is an error when writing to the file.
