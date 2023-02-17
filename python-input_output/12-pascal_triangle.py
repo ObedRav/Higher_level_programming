@@ -1,4 +1,17 @@
 #!/usr/bin/python3
+"""
+Module Name: 12-pascal_triangle
+
+Module Description:
+This module contains only one function
+
+Module Functions:
+- pascal_triangle
+
+Module Attributes:
+- None
+"""
+
 
 def pascal_triangle(n):
     """
