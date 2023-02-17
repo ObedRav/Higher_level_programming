@@ -42,6 +42,7 @@ except FileNotFoundError:
         f.write("[]")
     if not sys.argv[1]:
         exit(0)
+    json_data = load_from_json_file("add_item.json")
 
 for argv_data in sys.argv[1:]:
     json_data.append(argv_data)
