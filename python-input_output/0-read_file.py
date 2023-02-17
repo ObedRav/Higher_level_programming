@@ -33,7 +33,5 @@ def read_file(filename="") -> None:
     FileNotFoundError: If the specified file does not exist or cannot be opened.
     """
     with open(filename, "r", encoding="utf-8") as f:
-        for line in f.readlines():
-            print(line, end="")
-
-        print()
+        data = f.read()
+        print(data, end="")
