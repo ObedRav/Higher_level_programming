@@ -24,11 +24,12 @@ class Student:
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-    
+
     def to_json(self):
         """
-        Returns a dictionary containing the object's attributes as key-value pairs,
-        where the keys are the attribute names and the values are the attribute values.
-        This method is useful for JSON serialization of the object.
+        Returns a dictionary containing the object's attributes as key-value
+        pairs, where the keys are the attribute names and the values are the
+        attribute values. This method is useful for JSON serialization
+        of the object.
         """
         return self.__dict__
