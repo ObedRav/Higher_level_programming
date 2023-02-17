@@ -14,43 +14,36 @@ None
 """
 
 
-def add_attribute(object: object, name: str, value: str):
+def add_attribute(obj, name: str, value: str) -> None:
     """
-    This function adds a new attribute with the given name
-    and value to the specified object's dictionary.
+    Adds a new attribute to an object if it's possible.
 
-    Parameters:
-    -------------
-    object: An object to which the new attribute should be added.
-    name: A string representing the name of the new attribute to be added.
-    value: A string representing the value of the new attribute to be added.
-    Return Value:
-    This function does not return any value.
+    Args:
+    - obj: The object to add the attribute to.
+    - name: The name of the attribute to add.
+    - value: The value of the attribute to add.
 
-    Exceptions:
-    -------------
-    If the specified object is of type int, float, str, or bool,
-    then a TypeError is raised.
+    Raises:
+    - TypeError: If the object can't have a new attribute.
+
+    Returns:
+    - None
 
     Example usage:
-    ---------------
-    >>> add_attribute = __import__("101-add_attribute").add_attribute
-    >>> class MyClass:
-    ...     def __init__(self):
-    ...             self.my_attribute = "initial value"
+    >>> class MyClass():
+    ...     pass
     ...
-    >>> obj = MyClass()
-    >>> add_attribute(obj, "new_attribute", "new value")
-    >>> obj.new_attribute
-    'new value'
-    >>> add_attribute(42, "new_attribute", "new value")
+    >>> mc = MyClass()
+    >>> add_attribute(mc, "name", "John")
+    >>> print(mc.name)
+    John
+    >>> a = "My String"
+    >>> add_attribute(a, "name", "Bob")
     Traceback (most recent call last):
-        ...
+    ...
     TypeError: can't add new attribute
-
     """
-
-    if not isinstance(object, (int, float, str, bool)):
-        object.__dict__[name] = value
+    if hasattr(obj, '__dict__') or (hasattr(type(obj), '__slots__') and name in type(obj).__slots__):
+        obj.__setattr__(name, value)
     else:
         raise TypeError("can't add new attribute")
