@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
-Module Name: my_int
+Module Name: 100-my_int
 
 Module Description:
-This module contains a class that inherits from the built-in int class and overrides its
+This module contains a class that inherits from
+the built-in int class and overrides its
 eq and ne methods.
 
 Module Classes:
@@ -17,15 +18,19 @@ None
 
 class MyInt(int):
     """
-    A subclass of the built-in int class that overrides the eq and ne methods.
+    A subclass of the built-in int class that
+    overrides the eq and ne methods.
 
-    The MyInt class inherits from the built-in int class and redefines the __eq__ and __ne__
+    The MyInt class inherits from the built-in int
+    class and redefines the __eq__ and __ne__
     methods to invert their usual behavior.
 
     Methods:
-    - __eq__(self, other: int) -> bool: Overrides the built-in int class's __eq__ method
+    - __eq__(self, other: int) -> bool: Overrides
+    the built-in int class's __eq__ method
     to invert its behavior.
-    - __ne__(self, other: int) -> bool: Overrides the built-in int class's __ne__ method
+    - __ne__(self, other: int) -> bool: Overrides the
+    built-in int class's __ne__ method
     to invert its behavior.
 
     Example usage:
@@ -41,17 +46,21 @@ class MyInt(int):
     """
     def __eq__(self, other: int) -> bool:
         """
-        Overrides the built-in int class's __eq__ method to invert its behavior.
+        Overrides the built-in int class's __eq__
+        method to invert its behavior.
 
-        The __eq__ method checks whether the value of this MyInt object plus 0 is not equal
-        to the other integer. This has the effect of inverting the usual behavior of the
+        The __eq__ method checks whether the value
+        of this MyInt object plus 0 is not equal
+        to the other integer. This has the effect
+        of inverting the usual behavior of the
         equality operator (==).
 
         Parameters:
         - other: An integer to compare with this MyInt object.
 
         Returns:
-        - True if the value of this MyInt object plus 0 is not equal to the other integer.
+        - True if the value of this MyInt object plus 0
+        is not equal to the other integer.
         - False otherwise.
 
         Example usage:
@@ -63,17 +72,21 @@ class MyInt(int):
 
     def __ne__(self, other: int) -> bool:
         """
-        Overrides the built-in int class's __ne__ method to invert its behavior.
+        Overrides the built-in int class's __ne__
+        method to invert its behavior.
 
-        The __ne__ method checks whether the value of this MyInt object plus 0 is equal to
-        the other integer. This has the effect of inverting the usual behavior of the
+        The __ne__ method checks whether the value
+        of this MyInt object plus 0 is equal to
+        the other integer. This has the effect
+        of inverting the usual behavior of the
         inequality operator (!=).
 
         Parameters:
         - other: An integer to compare with this MyInt object.
 
         Returns:
-        - True if the value of this MyInt object plus 0 is equal to the other integer.
+        - True if the value of this MyInt object
+        plus 0 is equal to the other integer.
         - False otherwise.
 
         Example usage:
