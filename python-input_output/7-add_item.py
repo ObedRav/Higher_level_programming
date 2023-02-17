@@ -40,7 +40,8 @@ try:
 except FileNotFoundError:
     with open("add_item.json", "w") as f:
         f.write("[]")
-    exit(0)
+    if not sys.argv[1]:
+        exit(0)
 
 for argv_data in sys.argv[1:]:
     json_data.append(argv_data)
