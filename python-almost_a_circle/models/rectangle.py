@@ -119,7 +119,8 @@ class Rectangle(Base):
 
     def area(self) -> float:
         """
-        Method that calculates the area of the rectangle and returns it as a float.
+        Method that calculates the area of the
+        rectangle and returns it as a float.
         """
         return self.__width * self.__height
 
@@ -134,8 +135,8 @@ class Rectangle(Base):
         for k in range(self.__y):
             print()
         for i in range(self.__height):
-            for l in range(self.__x):
-                    print(" ", end="")
+            for x in range(self.__x):
+                print(" ", end="")
             for j in range(self.__width):
                 print("#", end="")
             print()
@@ -143,8 +144,9 @@ class Rectangle(Base):
     def __str__(self) -> str:
         """
         Method that returns a string representation of the rectangle.
-        The string is in the format [Rectangle] (<id>) <x>/<y> - <width>/<height>,
-        where <id>, <x>, <y>, <width>, and <height> are replaced with the actual
+        The string is in the format [Rectangle] (<id>) <x>/<y> -
+        <width>/<height>, where <id>, <x>, <y>, <width>,
+        and <height> are replaced with the actual
         values of the corresponding instance variables.
         """
         return_value = f"[Rectangle] ({self.id}) {self.__x}/{self.__y}"
@@ -156,15 +158,18 @@ class Rectangle(Base):
         Update the rectangle attributes.
 
         Args:
-        *args: Variable length argument list representing the attributes in the following order:
+        *args: Variable length argument list representing
+        the attributes in the following order:
             - id (optional): int
             - width (optional): int
             - height (optional): int
             - x (optional): int
             - y (optional): int
             Only the attributes included in the argument list will be updated.
-        **kwargs: Arbitrary keyword arguments representing the attributes and their values.
-            Only the attributes included in the keyword argument list will be updated.
+        **kwargs: Arbitrary keyword arguments representing
+                  the attributes and their values.
+                  Only the attributes included in the keyword
+                  argument list will be updated.
 
         Raises:
             TypeError: If any of the arguments have an incorrect type.
@@ -178,7 +183,6 @@ class Rectangle(Base):
             for attr, value in zip(attrs, args):
                 setattr(self, attr, value)
         else:
-            
             for key, value in kwargs.items():
                 if key in attrs:
                     self.__setattr__(key, value)
