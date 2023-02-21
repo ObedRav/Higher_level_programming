@@ -64,7 +64,7 @@ class Base:
         return json.dumps(list_dictionaries)
 
     @classmethod
-    def save_to_file(cls, list_objs):
+    def save_to_file(cls, list_objs) -> None:
         """
         Writes the JSON string representation of a list of Base instances to a file.
 

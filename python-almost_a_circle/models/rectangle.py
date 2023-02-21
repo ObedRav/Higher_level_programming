@@ -79,7 +79,7 @@ class Rectangle(Base):
         return self.__width
 
     @width.setter
-    def width(self, value: int):
+    def width(self, value: int) -> None:
         """Sets the value of the __width attribute"""
         check_integer(value, "width")
         self.__width = value
@@ -90,7 +90,7 @@ class Rectangle(Base):
         return self.__height
 
     @height.setter
-    def height(self, value: int):
+    def height(self, value: int) -> None:
         """Sets the value of the __height attribute"""
         check_integer(value, "height")
         self.__height = value
@@ -101,7 +101,7 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, value: int):
+    def x(self, value: int) -> None:
         """Sets the value of the __x attribute"""
         check_integer(value, "x")
         self.__x = value
@@ -112,7 +112,7 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def y(self, value: int):
+    def y(self, value: int) -> None:
         """Sets the value of the __y attribute"""
         check_integer(value, "y")
         self.__y = value
