@@ -92,11 +92,12 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        "llater"
-        from models.rectangle import Rectangle
-        rectangle1 = Rectangle(1, 1)
-        rectangle1.update(**dictionary)
-        return rectangle1
+        if cls.__name__ == 'Rectangle':
+            dummy = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
 
     @classmethod
     def load_from_file(cls):
