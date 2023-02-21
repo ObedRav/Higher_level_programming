@@ -61,7 +61,7 @@ class Base:
         A JSON string representation of the input list of dictionaries.
         """
         if list_dictionaries is None or len(list_dictionaries) == 0:
-            return "[{}]"
+            return []
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -87,7 +87,7 @@ class Base:
     def from_json_string(json_string):
         "later"
         if json_string is None or len(json_string) == 0:
-            return "[]"
+            return []
         return json.loads(json_string)
 
     @classmethod
