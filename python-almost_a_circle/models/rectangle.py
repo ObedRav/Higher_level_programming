@@ -149,7 +149,8 @@ class Rectangle(Base):
         and <height> are replaced with the actual
         values of the corresponding instance variables.
         """
-        return_value = f"[Rectangle] ({self.id}) {self.__x}/{self.__y}"
+        return_value = f"[{self.__class__.__name__}] ({self.id}) "
+        return_value = f"{return_value} {self.__x}/{self.__y}"
         return_value = f"{return_value} - {self.__width}/{self.__height}"
         return return_value
 
@@ -186,3 +187,18 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 if key in attrs:
                     self.__setattr__(key, value)
+
+    def to_dictionary(self) -> dict:
+        """
+        Returns the dictionary representation of a Rectangle or Square instance.
+
+        Returns:
+            A dictionary with keys:
+            - "id": int - the id of the instance
+            - "width": int - the width of the instance
+            - "height": int - the height of the instance
+            - "x": int - the x-coordinate of the instance
+            - "y": int - the y-coordinate of the instance
+        """
+        dictionary_representation = { "x": self.x, "y": self.y, "id": self.id, "height": self.height, "width": self.width}
+        return dictionary_representation
