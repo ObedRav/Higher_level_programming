@@ -91,10 +91,12 @@ class Base:
         return json.loads(json_string)
 
     @classmethod
-    
     def create(cls, **dictionary):
-        "later"
-        pass
+        "llater"
+        from models.rectangle import Rectangle
+        rectangle1 = Rectangle(1, 1)
+        rectangle1.update(**dictionary)
+        return rectangle1
 
     @classmethod
     def load_from_file(cls):
