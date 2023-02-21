@@ -202,3 +202,10 @@ class Rectangle(Base):
         """
         dictionary_representation = { "x": self.x, "y": self.y, "id": self.id, "height": self.height, "width": self.width}
         return dictionary_representation
+
+    @classmethod
+    def create(cls, **dictionary):
+        "later"
+        rectangle1 = Rectangle(1, 1)
+        rectangle1.update(**dictionary)
+        return rectangle1

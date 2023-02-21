@@ -12,6 +12,7 @@ Module Attributes:
 - None
 """
 import json
+import os
 
 
 class Base:
@@ -81,3 +82,31 @@ class Base:
 
         with open(filename, mode="w", encoding="utf-8") as f:
             f.write(cls.to_json_string(list_dict))
+
+    @staticmethod
+    def from_json_string(json_string):
+        "later"
+        if json_string is None or len(json_string) == 0:
+            return "[]"
+        return json.loads(json_string)
+
+    @classmethod
+    
+    def create(cls, **dictionary):
+        "later"
+        pass
+
+    @classmethod
+    def load_from_file(cls):
+        "later"
+        try:
+            filename = f"{cls.__name__}.json"
+
+            with open(filename, mode="r", encoding="utf-8") as f:
+                return_value = json.load(f)
+
+            value = cls.__init__(return_value)
+            
+            return value
+        except Exception as e:
+            return []
