@@ -38,7 +38,7 @@ class Square(Rectangle):
         """
         return_value = f"[{self.__class__.__name__}] ({self.id})"
         return f"{return_value} {self.x}/{self.y} - {self.width}"
-    
+
     def update(self, *args, **kwargs) -> None:
         """
         The update method updates the attributes of the current Square
@@ -55,10 +55,11 @@ class Square(Rectangle):
                   of the Square class. If the keyword matches an
                   attribute of the Square class, the value will be used
                   to update the attribute of the current instance.
-        
+
         Returns
         ---------
-        This method does not return anything. It simply updates the attributes of the current instance.
+        This method does not return anything. It simply
+        updates the attributes of the current instance.
         """
         attrs = ['id', 'size', 'x', 'y']
         if args:
@@ -79,5 +80,11 @@ class Square(Rectangle):
         This method takes no parameters, and simply returns the dictionary
         representation of the instance.
         """
-        dictionary_representation = { "x": self.x, "y": self.y, "id": self.id, "size": self.size}
+        dictionary_representation = \
+            {
+                "x": self.x,
+                "y": self.y,
+                "id": self.id,
+                "size": self.size
+            }
         return dictionary_representation

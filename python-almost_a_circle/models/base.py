@@ -54,10 +54,12 @@ class Base:
         Returns the JSON string representation of a list of dictionaries.
 
         Parameters:
+        ------------
+        list_dictionaries: A list of dictionaries to
+        be converted to a JSON string.
 
-        list_dictionaries: A list of dictionaries to be converted to a JSON string.
         Returns:
-
+        ---------
         A JSON string representation of the input list of dictionaries.
         """
         if list_dictionaries is None or len(list_dictionaries) == 0:
@@ -67,7 +69,8 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs) -> None:
         """
-        Writes the JSON string representation of a list of Base instances to a file.
+        Writes the JSON string representation of
+        a list of Base instances to a file.
 
         Parameters:
 
@@ -101,14 +104,17 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-        Creates an instance of the class with attributes set based on a dictionary.
+        Creates an instance of the class wit
+        attributes set based on a dictionary.
 
         Args:
             cls: The class to create an instance of.
-            **dictionary: A dictionary containing the attribute values of the instance.
+            **dictionary: A dictionary containing the
+                          attribute values of the instance.
 
         Returns:
-            An instance of the class with attributes set based on the dictionary.
+            An instance of the class with attributes
+            set based on the dictionary.
         """
         if cls.__name__ == 'Rectangle':
             dummy = cls(1, 1)

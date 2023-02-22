@@ -190,7 +190,7 @@ class Rectangle(Base):
 
     def to_dictionary(self) -> dict:
         """
-        Returns the dictionary representation of a Rectangle or Square instance.
+        Returns the dictionary representation of a Rectangle or Square instance
 
         Returns:
             A dictionary with keys:
@@ -200,6 +200,12 @@ class Rectangle(Base):
             - "x": int - the x-coordinate of the instance
             - "y": int - the y-coordinate of the instance
         """
-        dictionary_representation = { "x": self.x, "y": self.y, "id": self.id, "height": self.height, "width": self.width}
+        dictionary_representation = \
+            {
+                "x": self.x,
+                "y": self.y,
+                "id": self.id,
+                "height": self.height,
+                "width": self.width
+            }
         return dictionary_representation
-
