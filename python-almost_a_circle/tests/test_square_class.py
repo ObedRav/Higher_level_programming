@@ -43,20 +43,20 @@ class TestSquare(unittest.TestCase):
 
     def test_errors(self):
         with self.assertRaises(TypeError):
-            rectangle = Square("1")
+            square = Square("1")
         with self.assertRaises(TypeError):
-            rectangle = Square(1, "2")
+            square = Square(1, "2")
         with self.assertRaises(TypeError):
-            rectangle = Square(1, 2, "4")
+            square = Square(1, 2, "4")
 
         with self.assertRaises(ValueError):
-            rectangle = Square(-1)
+            square = Square(-1)
         with self.assertRaises(ValueError):
-            rectangle = Square(1, -2)
+            square = Square(1, -2)
         with self.assertRaises(ValueError):
-            rectangle = Square(1, 2, -3)
+            square = Square(1, 2, -3)
         with self.assertRaises(ValueError):
-            rectangle = Square(0)
+            square = Square(0)
 
 if __name__ == '__main__':
     unittest.main()
