@@ -84,7 +84,6 @@ class TestRectangle(unittest.TestCase):
             rectangle = Rectangle(1, 2, -3)
         with self.assertRaises(ValueError):
             rectangle = Rectangle(1, 2, 3, -4)
-        with self.assertRaises(ValueError):
 
 if __name__ == '__main__':
     unittest.main()
