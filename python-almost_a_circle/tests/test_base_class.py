@@ -18,8 +18,5 @@ class TestBase(unittest.TestCase):
         dictionary_list = Base.from_json_string(json_string)
         self.assertEqual(dictionary_list, [{"id": 1}])
 
-
-
-
 if __name__ == '__main__':
     unittest.main()
