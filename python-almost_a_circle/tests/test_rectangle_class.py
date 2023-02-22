@@ -12,7 +12,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.height, 20)
         self.assertEqual(self.rect.x, 0)
         self.assertEqual(self.rect.y, 0)
-        self.assertEqual(self.rect.id, 3)
+        self.assertEqual(self.rect.id, 4)
 
     def test_setters(self):
         self.rect.width = 30
@@ -41,7 +41,7 @@ class TestRectangle(unittest.TestCase):
         self.rect.display()
 
     def test_str(self):
-        self.assertEqual(str(self.rect), "[Rectangle] (5)  0/0 - 10/20")
+        self.assertEqual(str(self.rect), "[Rectangle] (6)  0/0 - 10/20")
 
     def test_update(self):
         self.rect.update(2, 30, 40, 50, 60)

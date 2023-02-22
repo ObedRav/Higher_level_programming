@@ -1,6 +1,4 @@
 import unittest
-import json
-import os
 from models.base import Base
 
 class TestBase(unittest.TestCase):
@@ -11,7 +9,6 @@ class TestBase(unittest.TestCase):
 
         base2 = Base(50)
         self.assertEqual(base2.id, 50)
-
 
     def test_from_json_string(self):
         json_string = '[{"id": 1}]'
