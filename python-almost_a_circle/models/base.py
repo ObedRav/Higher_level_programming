@@ -85,13 +85,31 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        "later"
+        """
+        Deserializes a JSON string to a Python object.
+
+        Args:
+            json_string (str): The JSON string to deserialize.
+
+        Returns:
+            A Python object representing the deserialized JSON string.
+        """
         if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
+        """
+        Creates an instance of the class with attributes set based on a dictionary.
+
+        Args:
+            cls: The class to create an instance of.
+            **dictionary: A dictionary containing the attribute values of the instance.
+
+        Returns:
+            An instance of the class with attributes set based on the dictionary.
+        """
         if cls.__name__ == 'Rectangle':
             dummy = cls(1, 1)
         elif cls.__name__ == 'Square':
@@ -100,16 +118,27 @@ class Base:
         return dummy
 
     @classmethod
-    def load_from_file(cls):
-        "later"
+    def load_from_file(cls) -> list:
+        """
+        Loads a list of instances from a file in JSON format.
+
+        Args:
+            cls: The class of the instances to load.
+
+        Returns:
+            A list of instances of the class loaded from the file.
+        """
         try:
             filename = f"{cls.__name__}.json"
 
-            with open(filename, mode="r", encoding="utf-8") as f:
-                return_value = json.load(f)
+            with open(filename, "r") as f:
+                data = f.read()
+                obj_list = cls.from_json_string(data)
+                return_value = []
+                for obj in obj_list:
+                    return_value.append(cls.create(**obj))
 
-            value = cls.__init__(return_value)
-            
-            return value
+            return return_value
+
         except Exception as e:
             return []
