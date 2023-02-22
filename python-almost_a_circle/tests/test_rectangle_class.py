@@ -12,7 +12,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.height, 20)
         self.assertEqual(self.rect.x, 0)
         self.assertEqual(self.rect.y, 0)
-        self.assertEqual(self.rect.id, 5)
+        self.assertEqual(self.rect.id, 8)
 
     def test_setters(self):
         self.rect.width = 30
@@ -38,10 +38,17 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.area(), 100)
 
     def test_display(self):
-        self.rect.display()
+        rectangle1 = Rectangle(1, 2)
+        self.assertEqual(rectangle1.display(), None)
+        rectangle1 = Rectangle(1, 2, 3)
+        self.assertEqual(rectangle1.display(), None)
+        rectangle1 = Rectangle(1, 2, 3, 4)
+        self.assertEqual(rectangle1.display(), None)
 
     def test_str(self):
-        self.assertEqual(str(self.rect), "[Rectangle] (7)  0/0 - 10/20")
+        self.assertEqual(str(self.rect), "[Rectangle] (10)  0/0 - 10/20")
+        rectangle1 = Rectangle(1, 2, 3, 4)
+        self.assertEqual(rectangle1.to_dictionary(), {'x': 3, 'y': 4, 'id': 11, 'height': 2, 'width': 1})
 
     def test_update(self):
         self.rect.update(2, 30, 40, 50, 60)
