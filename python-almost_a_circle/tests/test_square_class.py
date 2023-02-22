@@ -41,5 +41,22 @@ class TestSquare(unittest.TestCase):
         expected_dict = {"id": 4, "size": 5, "x": 2, "y": 3}
         self.assertDictEqual(square.to_dictionary(), expected_dict)
 
+    def test_errors(self):
+        with self.assertRaises(TypeError):
+            rectangle = Square("1")
+        with self.assertRaises(TypeError):
+            rectangle = Square(1, "2")
+        with self.assertRaises(TypeError):
+            rectangle = Square(1, 2, "4")
+
+        with self.assertRaises(ValueError):
+            rectangle = Square(-1)
+        with self.assertRaises(ValueError):
+            rectangle = Square(1, -2)
+        with self.assertRaises(ValueError):
+            rectangle = Square(1, 2, -3)
+        with self.assertRaises(ValueError):
+            rectangle = Square(0)
+
 if __name__ == '__main__':
     unittest.main()
