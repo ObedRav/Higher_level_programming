@@ -1,71 +1,66 @@
 import unittest
 from models.rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
+    def setUp(self):
+        self.rect = Rectangle(10, 20)
 
-    def test_constructor(self):
-        r1 = Rectangle(10, 20)
-        self.assertEqual(r1.width, 10)
-        self.assertEqual(r1.height, 20)
-        self.assertEqual(r1.x, 0)
-        self.assertEqual(r1.y, 0)
-
-        r2 = Rectangle(10, 20, 30, 40, 1)
-        self.assertEqual(r2.width, 10)
-        self.assertEqual(r2.height, 20)
-        self.assertEqual(r2.x, 30)
-        self.assertEqual(r2.y, 40)
-        self.assertEqual(r2.id, 1)
+    def test_init(self):
+        self.assertIsInstance(self.rect, Rectangle)
+        self.assertEqual(self.rect.width, 10)
+        self.assertEqual(self.rect.height, 20)
+        self.assertEqual(self.rect.x, 0)
+        self.assertEqual(self.rect.y, 0)
+        self.assertEqual(self.rect.id, 3)
 
     def test_setters(self):
-        r1 = Rectangle(10, 20)
-        r1.width = 30
-        r1.height = 40
-        r1.x = 50
-        r1.y = 60
-        self.assertEqual(r1.width, 30)
-        self.assertEqual(r1.height, 40)
-        self.assertEqual(r1.x, 50)
-        self.assertEqual(r1.y, 60)
-    
-    def test_rectangle_area(self):
-        r1 = Rectangle(2, 3)
-        self.assertEqual(r1.area(), 6)
+        self.rect.width = 30
+        self.assertEqual(self.rect.width, 30)
+        self.assertRaises(TypeError, setattr, self.rect, "width", "30")
+        self.assertRaises(ValueError, setattr, self.rect, "width", 0)
+        self.rect.height = 40
+        self.assertEqual(self.rect.height, 40)
+        self.assertRaises(TypeError, setattr, self.rect, "height", "40")
+        self.assertRaises(ValueError, setattr, self.rect, "height", 0)
+        self.rect.x = 50
+        self.assertEqual(self.rect.x, 50)
+        self.assertRaises(TypeError, setattr, self.rect, "x", "50")
+        self.assertRaises(ValueError, setattr, self.rect, "x", -1)
+        self.rect.y = 60
+        self.assertEqual(self.rect.y, 60)
+        self.assertRaises(TypeError, setattr, self.rect, "y", "60")
+        self.assertRaises(ValueError, setattr, self.rect, "y", -1)
 
-        r2 = Rectangle(4, 5)
-        self.assertEqual(r2.area(), 20)
+    def test_area(self):
+        self.assertEqual(self.rect.area(), 200)
+        self.rect.width = 5
+        self.assertEqual(self.rect.area(), 100)
 
-    def test_rectangle_display(self):
-        r1 = Rectangle(2, 2)
-        self.assertEqual(r1.display(), None)
+    def test_display(self):
+        self.rect.display()
 
-        r2 = Rectangle(3, 3, 1, 1)
-        self.assertEqual(r2.display(), None)
+    def test_str(self):
+        self.assertEqual(str(self.rect), "[Rectangle] (5)  0/0 - 10/20")
 
-    def test_rectangle_str(self):
-        r1 = Rectangle(4, 5, 6, 7, 8)
-        self.assertEqual(str(r1), "[Rectangle] (8)  6/7 - 4/5")
+    def test_update(self):
+        self.rect.update(2, 30, 40, 50, 60)
+        self.assertEqual(self.rect.id, 2)
+        self.assertEqual(self.rect.width, 30)
+        self.assertEqual(self.rect.height, 40)
+        self.assertEqual(self.rect.x, 50)
+        self.assertEqual(self.rect.y, 60)
 
-    def test_rectangle_update(self):
-        r1 = Rectangle(1, 2)
-        r1.update(2)
-        self.assertEqual(r1.id, 2)
+        self.rect.update(width=5, y=10)
+        self.assertEqual(self.rect.width, 5)
+        self.assertEqual(self.rect.y, 10)
 
-        r2 = Rectangle(3, 4, 5, 6, 7)
-        r2.update(8, 9, 10, 11, 12)
-        self.assertEqual(r2.id, 8)
-        self.assertEqual(r2.width, 9)
-        self.assertEqual(r2.height, 10)
-        self.assertEqual(r2.x, 11)
-        self.assertEqual(r2.y, 12)
-
-        r3 = Rectangle(1, 1)
-        r3.update(id=2, width=3, height=4, x=5, y=6)
-        self.assertEqual(r3.id, 2)
-        self.assertEqual(r3.width, 3)
-        self.assertEqual(r3.height, 4)
-        self.assertEqual(r3.x, 5)
-        self.assertEqual(r3.y, 6)
+        self.rect.update(2, 30, 40, 50, 60, 70, 80, 90)
+        self.assertEqual(self.rect.id, 2)
+        self.assertEqual(self.rect.width, 30)
+        self.assertEqual(self.rect.height, 40)
+        self.assertEqual(self.rect.x, 50)
+        self.assertEqual(self.rect.y, 60)
 
 if __name__ == '__main__':
     unittest.main()
