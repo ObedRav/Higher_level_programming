@@ -104,7 +104,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-        Creates an instance of the class wit
+        Creates an instance of the class with
         attributes set based on a dictionary.
 
         Args:

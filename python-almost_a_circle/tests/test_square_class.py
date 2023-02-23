@@ -18,6 +18,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square.width, 10)
         self.assertEqual(square.height, 10)
 
+
     def test_str(self):
         square = Square(5, 2, 3, 4)
         self.assertEqual(str(square), "[Square] (4) 2/3 - 5")
