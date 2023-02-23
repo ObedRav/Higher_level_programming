@@ -50,7 +50,7 @@ class TestRectangle(unittest.TestCase):
     def test_str(self):
         self.assertGreaterEqual(str(self.rect), "[Rectangle] (10)  0/0 - 10/20")
         rectangle1 = Rectangle(1, 2, 3, 4)
-        self.assertEqual(rectangle1.to_dictionary(), {'x': 3, 'y': 4, 'id': 22, 'height': 2, 'width': 1})
+        self.assertEqual(rectangle1.to_dictionary(), {'x': 3, 'y': 4, 'id': 26, 'height': 2, 'width': 1})
 
     def test_update(self):
         self.rect.update(2, 30, 40, 50, 60)
@@ -76,7 +76,7 @@ class TestRectangle(unittest.TestCase):
         with patch('builtins.open', mock_open()) as mock_file:
             Rectangle.save_to_file(list_rectangles)
             mock_file.assert_called_once_with('Rectangle.json', mode='w', encoding='utf-8')
-            mock_file().write.assert_called_once_with('[{"x": 0, "y": 0, "id": 18, "height": 20, "width": 10}]')
+            mock_file().write.assert_called_once_with('[{"x": 0, "y": 0, "id": 22, "height": 20, "width": 10}]')
 
         list_rectangles = []
         with patch('builtins.open', mock_open()) as mock_file:
@@ -94,7 +94,7 @@ class TestRectangle(unittest.TestCase):
         with patch('builtins.open', mock_open()) as mock_file:
             Rectangle.save_to_file(list_rectangles)
             mock_file.assert_called_once_with('Rectangle.json', mode='w', encoding='utf-8')
-            mock_file().write.assert_called_once_with('[{"x": 0, "y": 0, "id": 19, "height": 2, "width": 1}]')
+            mock_file().write.assert_called_once_with('[{"x": 0, "y": 0, "id": 23, "height": 2, "width": 1}]')
 
 
     def test_create_rectangle(self):
@@ -135,7 +135,7 @@ class TestRectangle(unittest.TestCase):
         # Delete the file
         os.remove("Rectangle.json")
 
-    def test_display(self):
+    def test_display_without_x_y(self):
         # Create a rectangle object
         rectangle = Rectangle(3, 4)
 
@@ -158,6 +158,51 @@ class TestRectangle(unittest.TestCase):
         expected_output = '###\n###\n###\n###'
         self.assertEqual(output, expected_output)
 
+    def test_display_without_y(self):
+                # Create a rectangle object
+        rectangle = Rectangle(3, 4, 2)
+
+        # Redirect the stdout to a buffer
+        from io import StringIO
+        buffer = StringIO()
+        import sys
+        sys.stdout = buffer
+
+        # Call the display method
+        rectangle.display()
+
+        # Get the printed output from the buffer
+        output = buffer.getvalue().strip()
+
+        # Reset the stdout
+        sys.stdout = sys.__stdout__
+
+        # Check if the output matches the expected string
+        expected_output = '###\n  ###\n  ###\n  ###'
+        self.assertEqual(output, expected_output)
+
+    def test_display(self):
+        # Create a rectangle object
+        rectangle = Rectangle(3, 4, 2, 5)
+
+        # Redirect the stdout to a buffer
+        from io import StringIO
+        buffer = StringIO()
+        import sys
+        sys.stdout = buffer
+
+        # Call the display method
+        rectangle.display()
+
+        # Get the printed output from the buffer
+        output = buffer.getvalue().strip()
+
+        # Reset the stdout
+        sys.stdout = sys.__stdout__
+
+        # Check if the output matches the expected string
+        expected_output = '###\n  ###\n  ###\n  ###'
+        self.assertEqual(output, expected_output)
         
 
     def test_errors(self):
