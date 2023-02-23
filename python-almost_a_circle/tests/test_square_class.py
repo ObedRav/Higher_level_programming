@@ -1,5 +1,6 @@
 import unittest
 import os
+from unittest.mock import patch, mock_open
 from models.square import Square
 
 
@@ -56,6 +57,31 @@ class TestSquare(unittest.TestCase):
         rectangle_dict = {'id': 89, 'size': 2, 'x': 3, 'y': 4}
         rectangle = Square.create(**rectangle_dict)
         self.assertEqual(rectangle.__str__(), "[Square] (89) 3/4 - 2")
+
+    def test_save_to_file(self):
+        list_squares = [Square(5, 2, 3, 4)]
+        with patch('builtins.open', mock_open()) as mock_file:
+            Square.save_to_file(list_squares)
+            mock_file.assert_called_once_with('Square.json', mode='w', encoding='utf-8')
+            mock_file().write.assert_called_once_with('[{"x": 2, "y": 3, "id": 4, "size": 5}]')
+
+        list_squares = []
+        with patch('builtins.open', mock_open()) as mock_file:
+            Square.save_to_file(list_squares)
+            mock_file.assert_called_once_with('Square.json', mode='w', encoding='utf-8')
+            mock_file().write.assert_called_once_with([])
+        
+        list_squares = None
+        with patch('builtins.open', mock_open()) as mock_file:
+            Square.save_to_file(list_squares)
+            mock_file.assert_called_once_with('Square.json', mode='w', encoding='utf-8')
+            mock_file().write.assert_called_once_with([])
+
+        list_squares = [Square(1, 2)]
+        with patch('builtins.open', mock_open()) as mock_file:
+            Square.save_to_file(list_squares)
+            mock_file.assert_called_once_with('Square.json', mode='w', encoding='utf-8')
+            mock_file().write.assert_called_once_with('[{"x": 2, "y": 0, "id": 35, "size": 1}]')
 
     def test_load_from_file(self):
         r1 = Square(10, 2, 8)
