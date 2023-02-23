@@ -88,13 +88,13 @@ class TestRectangle(unittest.TestCase):
         with patch('builtins.open', mock_open()) as mock_file:
             Rectangle.save_to_file(list_rectangles)
             mock_file.assert_called_once_with('Rectangle.json', mode='w', encoding='utf-8')
-            mock_file().write.assert_called_once_with([])
+            mock_file().write.assert_called_once_with('[]')
         
         list_rectangles = None
         with patch('builtins.open', mock_open()) as mock_file:
             Rectangle.save_to_file(list_rectangles)
             mock_file.assert_called_once_with('Rectangle.json', mode='w', encoding='utf-8')
-            mock_file().write.assert_called_once_with([])
+            mock_file().write.assert_called_once_with("[]")
 
         list_rectangles = [Rectangle(1, 2)]
         with patch('builtins.open', mock_open()) as mock_file:

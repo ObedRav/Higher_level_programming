@@ -69,13 +69,13 @@ class TestSquare(unittest.TestCase):
         with patch('builtins.open', mock_open()) as mock_file:
             Square.save_to_file(list_squares)
             mock_file.assert_called_once_with('Square.json', mode='w', encoding='utf-8')
-            mock_file().write.assert_called_once_with([])
+            mock_file().write.assert_called_once_with("[]")
         
         list_squares = None
         with patch('builtins.open', mock_open()) as mock_file:
             Square.save_to_file(list_squares)
             mock_file.assert_called_once_with('Square.json', mode='w', encoding='utf-8')
-            mock_file().write.assert_called_once_with([])
+            mock_file().write.assert_called_once_with("[]")
 
         list_squares = [Square(1, 2)]
         with patch('builtins.open', mock_open()) as mock_file:

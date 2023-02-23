@@ -17,8 +17,8 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_string(self):
         base2 = Base(50)
-        self.assertEqual(base2.to_json_string(None), [])
-        self.assertEqual(base2.to_json_string([]), [])
+        self.assertEqual(base2.to_json_string(None), "[]")
+        self.assertEqual(base2.to_json_string([]), "[]")
         self.assertEqual(base2.to_json_string(base2.to_json_string([ {'id': 12} ])), '"[{\\"id\\": 12}]"')
 
 if __name__ == '__main__':
