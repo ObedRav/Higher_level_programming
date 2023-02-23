@@ -1,4 +1,5 @@
 import unittest
+import os
 from models.square import Square
 
 
@@ -41,6 +42,41 @@ class TestSquare(unittest.TestCase):
         square = Square(5, 2, 3, 4)
         expected_dict = {"id": 4, "size": 5, "x": 2, "y": 3}
         self.assertDictEqual(square.to_dictionary(), expected_dict)
+
+    def test_create_rectangle(self):
+        rectangle_dict = {'id': 89}
+        rectangle = Square.create(**rectangle_dict)
+        self.assertEqual(rectangle.__str__(), "[Square] (89) 0/0 - 1")
+        rectangle_dict = {'id': 89, 'size': 2 }
+        rectangle = Square.create(**rectangle_dict)
+        self.assertEqual(rectangle.__str__(), "[Square] (89) 0/0 - 2")
+        rectangle_dict = {'id': 89, 'size': 2, 'x': 3}
+        rectangle = Square.create(**rectangle_dict)
+        self.assertEqual(rectangle.__str__(), "[Square] (89) 3/0 - 2")
+        rectangle_dict = {'id': 89, 'size': 2, 'x': 3, 'y': 4}
+        rectangle = Square.create(**rectangle_dict)
+        self.assertEqual(rectangle.__str__(), "[Square] (89) 3/4 - 2")
+
+    def test_load_from_file(self):
+        r1 = Square(10, 2, 8)
+        r2 = Square(2, 4)
+        list_rectangles_input = [r1, r2]
+
+        # Save the list of rectangles to a file
+        Square.save_to_file(list_rectangles_input)
+
+        # Load the list of rectangles from the file
+        list_rectangles_output = Square.load_from_file()
+
+        # Check that the output list has the same length as the input list
+        self.assertEqual(len(list_rectangles_input), len(list_rectangles_output))
+
+        # Check that the rectangles in the output list have the same attributes as the rectangles in the input list
+        for i in range(len(list_rectangles_input)):
+            self.assertEqual(list_rectangles_input[i].to_dictionary(), list_rectangles_output[i].to_dictionary())
+
+        # Delete the file
+        os.remove("Square.json")
 
     def test_errors(self):
         with self.assertRaises(TypeError):
