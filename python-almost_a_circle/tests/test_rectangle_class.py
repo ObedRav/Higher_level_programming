@@ -163,7 +163,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(output, expected_output)
 
 
-        rectangle = Rectangle(3, 4, 2)
+        rectangle = Rectangle(3, 4, 2, 0)
 
         buffer = StringIO()
         sys.stdout = buffer
