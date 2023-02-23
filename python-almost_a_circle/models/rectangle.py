@@ -149,7 +149,7 @@ class Rectangle(Base):
         and <height> are replaced with the actual
         values of the corresponding instance variables.
         """
-        return_value = f"[{self.__class__.__name__}] ({self.id}) "
+        return_value = f"[{self.__class__.__name__}] ({self.id})"
         return_value = f"{return_value} {self.__x}/{self.__y}"
         return_value = f"{return_value} - {self.__width}/{self.__height}"
         return return_value
