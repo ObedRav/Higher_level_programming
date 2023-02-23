@@ -56,7 +56,7 @@ class TestRectangle(unittest.TestCase):
     def test_str(self):
         self.assertGreaterEqual(str(self.rect), "[Rectangle] (10)  0/0 - 10/20")
         rectangle1 = Rectangle(1, 2, 3, 4)
-        self.assertDictEqual(rectangle1.to_dictionary(), {'x': 3, 'y': 4, 'id': 24, 'height': 2, 'width': 1})
+        self.assertDictEqual(rectangle1.to_dictionary(), {'x': 3, 'y': 4, 'id': 21, 'height': 2, 'width': 1})
 
     def test_update(self):
         self.rect.update(2, 30, 40, 50, 60)
@@ -82,7 +82,7 @@ class TestRectangle(unittest.TestCase):
         with patch('builtins.open', mock_open()) as mock_file:
             Rectangle.save_to_file(list_rectangles)
             mock_file.assert_called_once_with('Rectangle.json', mode='w', encoding='utf-8')
-            mock_file().write.assert_called_once_with('[{"x": 0, "y": 0, "id": 20, "height": 20, "width": 10}]')
+            mock_file().write.assert_called_once_with('[{"x": 0, "y": 0, "id": 17, "height": 20, "width": 10}]')
 
         list_rectangles = []
         with patch('builtins.open', mock_open()) as mock_file:
@@ -100,22 +100,26 @@ class TestRectangle(unittest.TestCase):
         with patch('builtins.open', mock_open()) as mock_file:
             Rectangle.save_to_file(list_rectangles)
             mock_file.assert_called_once_with('Rectangle.json', mode='w', encoding='utf-8')
-            mock_file().write.assert_called_once_with('[{"x": 0, "y": 0, "id": 21, "height": 2, "width": 1}]')
+            mock_file().write.assert_called_once_with('[{"x": 0, "y": 0, "id": 18, "height": 2, "width": 1}]')
 
 
     def test_create_rectangle(self):
         rectangle_dict = {'id': 89}
         rectangle = Rectangle.create(**rectangle_dict)
         self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  0/0 - 1/1")
+
         rectangle_dict = {'id': 89, 'width': 1}
         rectangle = Rectangle.create(**rectangle_dict)
         self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  0/0 - 1/1")
+
         rectangle_dict = {'id': 89, 'width': 1, 'height': 2 }
         rectangle = Rectangle.create(**rectangle_dict)
         self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  0/0 - 1/2")
+
         rectangle_dict = {'id': 89, 'width': 1, 'height': 2, 'x': 3}
         rectangle = Rectangle.create(**rectangle_dict)
         self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  3/0 - 1/2")
+
         rectangle_dict = {'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
         rectangle = Rectangle.create(**rectangle_dict)
         self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  3/4 - 1/2")
@@ -142,55 +146,39 @@ class TestRectangle(unittest.TestCase):
         os.remove("Rectangle.json")
 
     def test_display(self):
-        # Create a rectangle object
-        rectangle = Rectangle(3, 4)
+        test_cases = [
+            (2, 3, 0, 0, 0, '##\n##\n##'),
+            (3, 2, 1, 0, 1, '###\n ###'),
+            (4, 5, 0, 1, 0, '####\n####\n####\n####\n####'),
+            (2, 4, 3, 2, 0, '##\n   ##\n   ##\n   ##'),
+            (5, 1, 2, 4, 7, '#####'),
+            (1, 1, 0, 0, 0, '#'),
+            (1, 1, 1, 0, 0, '#'),
+            (1, 1, 0, 1, 0, '#'),
+            (1, 1, 1, 1, 0, '#'),
+            (1, 1, 1, 1, 1, '#')
+        ]
 
-        # Redirect the stdout to a buffer
-        buffer = StringIO()
-        sys.stdout = buffer
+        for test_case in test_cases:
+            # Create a rectangle object
+            width, height, x, y, id, expected_output = test_case
+            rectangle = Rectangle(width, height, x, y, id)
+            
+            # Redirect the stdout to a buffer
+            buffer = StringIO()
+            sys.stdout = buffer
 
-        # Call the display method
-        rectangle.display()
+            # Call the display method
+            rectangle.display()
 
-        # Get the printed output from the buffer
-        output = buffer.getvalue().strip()
+            # Get the printed output from the buffer
+            output = buffer.getvalue().strip()
 
-        # Reset the stdout
-        sys.stdout = sys.__stdout__
+            # Reset the stdout
+            sys.stdout = sys.__stdout__
 
-        # Check if the output matches the expected string
-        expected_output = '###\n###\n###\n###'
-        self.assertEqual(output, expected_output)
-
-
-        rectangle = Rectangle(3, 4, 2, 0)
-
-        buffer = StringIO()
-        sys.stdout = buffer
-
-        rectangle.display()
-
-        output = buffer.getvalue().strip()
-
-        sys.stdout = sys.__stdout__
-
-        expected_output = '###\n  ###\n  ###\n  ###'
-        self.assertEqual(output, expected_output)
-
-
-        rectangle = Rectangle(3, 4, 0, 5)
-
-        buffer = StringIO()
-        sys.stdout = buffer
-
-        rectangle.display()
-
-        output = buffer.getvalue().strip()
-
-        sys.stdout = sys.__stdout__
-
-        expected_output = '###\n###\n###\n###'
-        self.assertEqual(output, expected_output)
+            # Check if the output matches the expected string
+            self.assertEqual(output, expected_output)
 
     def test_errors(self):
         with self.assertRaises(TypeError):

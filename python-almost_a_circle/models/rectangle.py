@@ -44,23 +44,23 @@ class Rectangle(Base):
 
     Attributes:
     ------------
-    width: The width of the rectangle.
-    height: The height of the rectangle.
-    x: The x coordinate of the rectangle.
-    y: The y coordinate of the rectangle.
+    Width: The width of the rectangle.
+    Height: The height of the rectangle.
+    X: The x coordinate of the rectangle.
+    Y: The y coordinate of the rectangle.
     """
     def __init__(self, width: int, height: int, x=0, y=0, id=None):
         """
         Initializes a new Rectangle object with
         the given dimensions and coordinates.
 
-        width: An integer representing the width of the rectangle.
-        height: An integer representing the height of the rectangle.
-        x: An integer representing the x coordinate of the rectangle.
+        Width: An integer representing the width of the rectangle.
+        Height: An integer representing the height of the rectangle.
+        X: An integer representing the x coordinate of the rectangle.
            Default is 0.
-        y: An integer representing the y coordinate of the rectangle.
+        Y: An integer representing the y coordinate of the rectangle.
            Default is 0.
-        id: An integer representing the unique identifier of the rectangle.
+        Id: An integer representing the unique identifier of the rectangle.
             Default is None.
         """
         check_integer(width, "width")

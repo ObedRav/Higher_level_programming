@@ -54,7 +54,7 @@ class Base:
 
         Parameters:
         ------------
-        list_dictionaries: A list of dictionaries to
+        List_dictionaries: A list of dictionaries to
         be converted to a JSON string.
 
         Returns:
@@ -73,8 +73,8 @@ class Base:
 
         Parameters:
 
-        cls: The class of the Base instance.
-        list_objs: A list of Base instances to be saved.
+        Cls: The class of the Base instance.
+        List_objs: A list of Base instances to be saved.
         """
         filename = f"{cls.__name__}.json"
         list_dict = []
@@ -91,7 +91,7 @@ class Base:
         Deserializes a JSON string to a Python object.
 
         Args:
-            json_string (str): The JSON string to deserialize.
+            Json_string (str): The JSON string to deserialize.
 
         Returns:
             A Python object representing the deserialized JSON string.
@@ -107,7 +107,7 @@ class Base:
         attributes set based on a dictionary.
 
         Args:
-            cls: The class to create an instance of.
+            Cls: The class to create an instance of.
             **dictionary: A dictionary containing the
                           attribute values of the instance.
 
@@ -128,7 +128,7 @@ class Base:
         Loads a list of instances from a file in JSON format.
 
         Args:
-            cls: The class of the instances to load.
+            Cls: The class of the instances to load.
 
         Returns:
             A list of instances of the class loaded from the file.

@@ -81,7 +81,7 @@ class TestSquare(unittest.TestCase):
         with patch('builtins.open', mock_open()) as mock_file:
             Square.save_to_file(list_squares)
             mock_file.assert_called_once_with('Square.json', mode='w', encoding='utf-8')
-            mock_file().write.assert_called_once_with('[{"x": 2, "y": 0, "id": 35, "size": 1}]')
+            mock_file().write.assert_called_once_with('[{"x": 2, "y": 0, "id": 32, "size": 1}]')
 
     def test_load_from_file(self):
         r1 = Square(10, 2, 8)

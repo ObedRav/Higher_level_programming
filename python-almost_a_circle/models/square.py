@@ -19,10 +19,10 @@ class Square(Rectangle):
     A class that represents a square.
 
     Attributes:
-        size (int): The size of the square.
-        x (int): The x-coordinate of the square's top-left corner.
-        y (int): The y-coordinate of the square's top-left corner.
-        id (int): The unique identifier of the square.
+        Size (int): The size of the square.
+        X (int): The x-coordinate of the square's top-left corner.
+        Y (int): The y-coordinate of the square's top-left corner.
+        Id (int): The unique identifier of the square.
     """
     def __init__(self, size: int, x=0, y=0, id=None):
         """
@@ -58,7 +58,7 @@ class Square(Rectangle):
 
         Parameters
         ------------
-        self: The current instance of the Square class
+        Self: The current instance of the Square class
         *args: An arbitrary number of positional arguments.
                These arguments should be in the following order:
                id, size, x, and y.
