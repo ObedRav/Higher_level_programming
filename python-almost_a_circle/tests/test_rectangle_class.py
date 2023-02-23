@@ -54,7 +54,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.area(), 100)
 
     def test_str(self):
-        self.assertGreaterEqual(str(self.rect), "[Rectangle] (10)  0/0 - 10/20")
+        self.assertGreaterEqual(str(self.rect), "[Rectangle] (10) 0/0 - 10/20")
         rectangle1 = Rectangle(1, 2, 3, 4)
         self.assertDictEqual(rectangle1.to_dictionary(), {'x': 3, 'y': 4, 'id': 21, 'height': 2, 'width': 1})
 
@@ -106,23 +106,23 @@ class TestRectangle(unittest.TestCase):
     def test_create_rectangle(self):
         rectangle_dict = {'id': 89}
         rectangle = Rectangle.create(**rectangle_dict)
-        self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  0/0 - 1/1")
+        self.assertEqual(rectangle.__str__(), "[Rectangle] (89) 0/0 - 1/1")
 
         rectangle_dict = {'id': 89, 'width': 1}
         rectangle = Rectangle.create(**rectangle_dict)
-        self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  0/0 - 1/1")
+        self.assertEqual(rectangle.__str__(), "[Rectangle] (89) 0/0 - 1/1")
 
         rectangle_dict = {'id': 89, 'width': 1, 'height': 2 }
         rectangle = Rectangle.create(**rectangle_dict)
-        self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  0/0 - 1/2")
+        self.assertEqual(rectangle.__str__(), "[Rectangle] (89) 0/0 - 1/2")
 
         rectangle_dict = {'id': 89, 'width': 1, 'height': 2, 'x': 3}
         rectangle = Rectangle.create(**rectangle_dict)
-        self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  3/0 - 1/2")
+        self.assertEqual(rectangle.__str__(), "[Rectangle] (89) 3/0 - 1/2")
 
         rectangle_dict = {'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
         rectangle = Rectangle.create(**rectangle_dict)
-        self.assertEqual(rectangle.__str__(), "[Rectangle] (89)  3/4 - 1/2")
+        self.assertEqual(rectangle.__str__(), "[Rectangle] (89) 3/4 - 1/2")
 
     def test_load_from_file(self):
         r1 = Rectangle(10, 7, 2, 8)
