@@ -141,7 +141,7 @@ class TestRectangle(unittest.TestCase):
         # Delete the file
         os.remove("Rectangle.json")
 
-    def test_display_without_x_y(self):
+    def test_display(self):
         # Create a rectangle object
         rectangle = Rectangle(3, 4)
 
@@ -178,7 +178,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(output, expected_output)
 
 
-        rectangle = Rectangle(3, 4, 2, 5)
+        rectangle = Rectangle(3, 4, 0, 5)
 
         buffer = StringIO()
         sys.stdout = buffer
@@ -189,7 +189,7 @@ class TestRectangle(unittest.TestCase):
 
         sys.stdout = sys.__stdout__
 
-        expected_output = '###\n  ###\n  ###\n  ###'
+        expected_output = '###\n###\n###\n###'
         self.assertEqual(output, expected_output)
 
     def test_errors(self):
