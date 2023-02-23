@@ -43,7 +43,7 @@ class Rectangle(Base):
     which is a subclass of Base.
 
     Attributes:
-
+    ------------
     width: The width of the rectangle.
     height: The height of the rectangle.
     x: The x coordinate of the rectangle.
@@ -159,6 +159,7 @@ class Rectangle(Base):
         Update the rectangle attributes.
 
         Args:
+        ------
         *args: Variable length argument list representing
         the attributes in the following order:
             - id (optional): int

@@ -1,4 +1,16 @@
 #!/usr/bin/python3
+"""
+Module Name: square
+
+Module Description:
+This module contains only one Class
+
+Module Classes:
+- Square
+
+Module Attributes:
+- None
+"""
 from models.rectangle import Rectangle
 
 

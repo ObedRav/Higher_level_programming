@@ -12,7 +12,6 @@ Module Attributes:
 - None
 """
 import json
-import os
 
 
 class Base:
