@@ -39,7 +39,7 @@ def solution():
     """)
 
     query_rows = str(cur.fetchall())
-    query_rows = query_rows.replace("{'name': ", "").replace('}', '').replace('(', '[').replace(')', ']')
+    query_rows = query_rows.replace("{'name': ", "").replace('}', '').replace('(', '').replace(')', '')
     print(query_rows)
     cur.close()
     conn.close()
