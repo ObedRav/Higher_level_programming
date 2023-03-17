@@ -35,10 +35,14 @@ def Solution():
 
     # Use the with to handle the close session
     with Session() as session:
-        # Creating a new instance
-        session.query(State).filter(State.name.like("%a%")).delete()
+        # Query the database for all states that contain the letter 'a' in their name
+        states = session.query(State).filter(State.name.like('%a%')).all()
 
-        # commit the transaction
+        # Delete the selected states
+        for state in states:
+            session.delete(state)
+
+        # Commit the transaction
         session.commit()
 
 
