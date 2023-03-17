@@ -36,7 +36,10 @@ def Solution():
         state = session.query(State).first()
 
         # Print the results
-        print(f"{state.id}: {state.name}")
+        if state is None or state == "":
+            print("Nothing")
+        else:
+            print(f"{state.id}: {state.name}")
 
 
 if __name__ == "__main__":
