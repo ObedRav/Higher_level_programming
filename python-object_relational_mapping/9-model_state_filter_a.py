@@ -19,7 +19,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 def Solution():
-    """Prints all the states from the database."""
+    """Prints all State objects that contain the letter a from the database."""
     # Creating database connection
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         sys.argv[1],
@@ -33,12 +33,11 @@ def Solution():
     # Use the with to handle the close session
     with Session() as session:
         # Query the database for all states
-        state = session.query(State).first()
+        states = \
+            session.query(State).filter(State.name.like("%a%")).order_by(State.id)
 
         # Print the results
-        if state is None or state == "":
-            print("Nothing")
-        else:
+        for state in states.all():
             print(f"{state.id}: {state.name}")
 
 

@@ -19,7 +19,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 def Solution():
-    """Prints all the states from the database."""
+    """Prints the first State from the database."""
     # Creating database connection
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         sys.argv[1],
