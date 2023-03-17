@@ -30,12 +30,12 @@ def solution():
         charset="utf8")
 
     cur = conn.cursor()
-    cur.execute(f"""
+    cur.execute("""
     SELECT id, name
     FROM states
-    WHERE name = '{state_name}'
+    WHERE name = '{}'
     ORDER BY id;
-    """)
+    """.format(state_name))
 
     query_rows = cur.fetchall()
     for row in query_rows:
