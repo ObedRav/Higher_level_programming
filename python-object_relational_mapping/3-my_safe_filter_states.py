@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-Module Name: 0-select_states
+Module Name: 3-my_safe_filter_states
 
 Module Description:
 This module contains only one function
 
 Module Functions:
-- sol() -> None
+- solution() -> None
 
 Module Attributes:
 - None
@@ -16,33 +16,30 @@ from sys import argv
 
 
 def solution():
-    username = argv[1]
-    password = argv[2]
-    database_name = argv[3]
-    state_name = argv[4].split(';')[0].strip("'")
+    username, password, database_name, state_name = argv[1:5]
+    state_name = state_name.split(';')[0].strip("'")
 
-    conn = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=username,
-        passwd=password,
-        db=database_name,
-        charset="utf8")
+    with MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=username,
+            passwd=password,
+            db=database_name,
+            charset="utf8") as conn:
 
-    cur = conn.cursor()
-    cur.execute("""
-    SELECT id, name
-    FROM states
-    WHERE name = '{}' AND BINARY name = BINARY '{}'
-    ORDER BY id;
-    """.format(state_name, state_name))
+        cur = conn.cursor()
+        cur.execute("""
+        SELECT id, name
+        FROM states
+        WHERE name = '{}' AND BINARY name = BINARY '{}'
+        ORDER BY id;
+        """.format(state_name, state_name))
 
-    query_rows = cur.fetchall()
-    for row in query_rows:
-        print(row)
+        query_rows = cur.fetchall()
+        for row in query_rows:
+            print(row)
 
-    cur.close()
-    conn.close()
+        cur.close()
 
 
 if __name__ == '__main__':
