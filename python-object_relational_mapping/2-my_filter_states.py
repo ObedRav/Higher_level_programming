@@ -33,9 +33,9 @@ def solution():
     cur.execute("""
     SELECT id, name
     FROM states
-    WHERE name = '{}'
+    WHERE name = '{}' AND BINARY name = BINARY '{}'
     ORDER BY id;
-    """.format(state_name))
+    """.format(state_name, state_name))
 
     query_rows = cur.fetchall()
     for row in query_rows:
