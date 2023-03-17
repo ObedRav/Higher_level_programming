@@ -1,2 +1,2 @@
 -- Computing data from a table
-SELECT * FROM cities WHERE state_id = 1;
+SELECT id, name FROM cities WHERE state_id = 1;
