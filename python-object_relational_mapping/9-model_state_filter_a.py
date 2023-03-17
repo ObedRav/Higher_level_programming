@@ -34,7 +34,8 @@ def Solution():
     with Session() as session:
         # Query the database for all states
         states = \
-            session.query(State).filter(State.name.like("%a%")).order_by(State.id)
+            session.query(State)\
+            .filter(State.name.like("%a%")).order_by(State.id)
 
         # Print the results
         for state in states.all():
