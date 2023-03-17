@@ -36,7 +36,8 @@ def Solution():
     # Use the with to handle the close session
     with Session() as session:
         # Creating a new instance
-        session.query(State).filter(State.id == 2).update({State.name: "New Mexico"})
+        session.query(State)\
+            .filter(State.id == 2).update({State.name: "New Mexico"})
 
         # commit the transaction
         session.commit()
