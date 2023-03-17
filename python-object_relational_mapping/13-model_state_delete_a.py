@@ -35,7 +35,8 @@ def Solution():
 
     # Use the with to handle the close session
     with Session() as session:
-        # Query the database for all states that contain the letter 'a' in their name
+        # Query the database for all states
+        # that contain the letter 'a' in their name
         states = session.query(State).filter(State.name.like('%a%')).all()
 
         # Delete the selected states
