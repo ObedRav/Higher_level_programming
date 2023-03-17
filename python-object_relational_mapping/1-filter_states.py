@@ -29,7 +29,7 @@ def solution():
         charset="utf8")
 
     cur = conn.cursor()
-    cur.execute("SELECT id, name FROM states WHERE name LIKE 'N%' AND name COLLATE utf8mb4_0900_ai_ci REGEXP '^[N]' ORDER BY id")
+    cur.execute("SELECT id, name FROM states WHERE name LIKE 'N%' AND BINARY LEFT(name, 1) = BINARY 'N' ORDER BY id")
 
     query_rows = cur.fetchall()
     for row in query_rows:
