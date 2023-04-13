@@ -1,3 +1,3 @@
 #!/usr/bin/node
-const texts = ['C is fun', 'Python ic cool', 'JavaScript is amazing'];
+const texts = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 console.log(texts.join('\n'));
