@@ -11,8 +11,8 @@ if (size < 0) {
 
 const sign = 'X';
 
-const mod_sign = sign.repeat(size);
+const modSign = sign.repeat(size);
 
 for (let i = 0; i < size; i++) {
-  console.log(mod_sign);
+  console.log(modSign);
 }
