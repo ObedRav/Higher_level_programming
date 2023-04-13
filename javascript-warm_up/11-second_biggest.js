@@ -1,5 +1,5 @@
 #!/usr/bin/node
-if (!process.argv[3] || !process.argv[3] && !process.argv[4]) {
+if ((!process.argv[3]) || (!process.argv[3] && !process.argv[4])) {
   console.log(0);
   process.exit(1);
 }
