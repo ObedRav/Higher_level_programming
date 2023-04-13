@@ -4,10 +4,14 @@ if (!process.argv[3] || !process.argv[4]) {
 }
 
 const findSecond = (arr) => {
-  const sortedArr = arr.sort();
-  return sortedArr[sortedArr.length - 2];
+  const sortedArr = arr.sort((a, b) => b - a);
+  return sortedArr[1];
 };
 
 const argvArr = process.argv.slice(2);
 
-console.log(findSecond(argvArr));
+const argvNumeric = argvArr.map(function (value) {
+  return parseInt(value);
+});
+
+console.log(findSecond(argvNumeric));
