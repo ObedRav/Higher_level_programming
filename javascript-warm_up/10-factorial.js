@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const recursiveFactorial = (num) => {
+function recursiveFactorial(num) {
   if (num === 1) {
     return 1;
   } else {
